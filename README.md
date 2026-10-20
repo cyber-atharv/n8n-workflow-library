@@ -2,12 +2,17 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Workflows](https://img.shields.io/badge/Workflows-1%2C044%2B%20Curated-coral)](workflows/)
+[![Live Explorer](https://img.shields.io/badge/Live%20Explorer-cyber--atharv.github.io-success?logo=googlechrome&logoColor=white)](https://cyber-atharv.github.io/n8n-workflow-explorer/)
 [![Catalog Index](https://img.shields.io/badge/Full%20Catalog-WORKFLOWS.md-purple)](WORKFLOWS.md)
 [![Maintainer](https://img.shields.io/badge/Maintainer-cyber--atharv-black)](https://github.com/cyber-atharv)
 
 A production-ready collection of **1,044+ verified n8n workflows** organized into **30 clean humanoid categories**. Every single workflow can be clicked, analyzed, and imported onto your canvas with one click.
 
-👉 **[Browse the Full 1,044+ Clickable Workflow Directory (WORKFLOWS.md)](WORKFLOWS.md)**
+> 🌐 **Interactive Web Application**:
+> - **[3D Landing Page Showcase](https://cyber-atharv.github.io/n8n-workflow-explorer/)**
+> - **[Interactive Workflow Explorer & Visualizer](https://cyber-atharv.github.io/n8n-workflow-explorer/browse.html)**
+>
+> 👉 **[Browse the Full 1,044+ Clickable Workflow Directory (WORKFLOWS.md)](WORKFLOWS.md)**
 
 ---
 

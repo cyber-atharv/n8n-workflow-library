@@ -21,7 +21,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY config/ ./config/
 COPY workflows/ ./workflows/
 COPY scripts/ ./scripts/
-COPY web/ ./web/
 COPY WORKFLOW_MANIFEST.csv ./
 COPY workflow_manifest.json ./
 COPY validation_report.csv ./

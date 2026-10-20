@@ -1,0 +1,279 @@
+{
+  "total_workflows": 1037,
+  "total_categories": 31,
+  "categories": [
+    {
+      "name": "AI Agents & LLMs",
+      "count": 40
+    },
+    {
+      "name": "OpenAI & AI Integrations",
+      "count": 40
+    },
+    {
+      "name": "WhatsApp, Telegram, Discord & Slack",
+      "count": 40
+    },
+    {
+      "name": "Social Media Publishing",
+      "count": 40
+    },
+    {
+      "name": "E-Commerce & Shopify",
+      "count": 40
+    },
+    {
+      "name": "Google Sheets & Workspace",
+      "count": 40
+    },
+    {
+      "name": "Databases & SQL",
+      "count": 40
+    },
+    {
+      "name": "REST APIs & Webhooks",
+      "count": 40
+    },
+    {
+      "name": "Finance & Invoicing",
+      "count": 40
+    },
+    {
+      "name": "RAG & Vector Databases",
+      "count": 39
+    },
+    {
+      "name": "Chatbots & Conversational",
+      "count": 39
+    },
+    {
+      "name": "Email Marketing & Outreach",
+      "count": 39
+    },
+    {
+      "name": "CRM & Sales Automation",
+      "count": 39
+    },
+    {
+      "name": "Customer Support",
+      "count": 39
+    },
+    {
+      "name": "Project Management",
+      "count": 39
+    },
+    {
+      "name": "SEO & Content Generation",
+      "count": 38
+    },
+    {
+      "name": "Business Process Automation",
+      "count": 38
+    },
+    {
+      "name": "Lead Generation & Enrichment",
+      "count": 37
+    },
+    {
+      "name": "Scheduling & Productivity",
+      "count": 36
+    },
+    {
+      "name": "WordPress & Website Automation",
+      "count": 35
+    },
+    {
+      "name": "RSS & News Monitoring",
+      "count": 35
+    },
+    {
+      "name": "Web Scraping & Browser Automation",
+      "count": 34
+    },
+    {
+      "name": "Microsoft 365",
+      "count": 33
+    },
+    {
+      "name": "Data Pipelines & ETL",
+      "count": 32
+    },
+    {
+      "name": "Security & Alerting",
+      "count": 32
+    },
+    {
+      "name": "File Management & Document Processing",
+      "count": 28
+    },
+    {
+      "name": "DevOps & Infrastructure Monitoring",
+      "count": 25
+    },
+    {
+      "name": "Analytics & Reporting",
+      "count": 24
+    },
+    {
+      "name": "HR & Recruitment",
+      "count": 11
+    },
+    {
+      "name": "Atharv Flagship Originals",
+      "count": 3
+    },
+    {
+      "name": "Atharv Enhanced & Hardened",
+      "count": 2
+    }
+  ],
+  "integrations": [
+    {
+      "name": "HTTP Request",
+      "count": 297
+    },
+    {
+      "name": "Custom Code",
+      "count": 276
+    },
+    {
+      "name": "OpenAI",
+      "count": 261
+    },
+    {
+      "name": "Slack",
+      "count": 129
+    },
+    {
+      "name": "Gmail",
+      "count": 125
+    },
+    {
+      "name": "Google Sheets",
+      "count": 115
+    },
+    {
+      "name": "Webhook",
+      "count": 108
+    },
+    {
+      "name": "Telegram",
+      "count": 78
+    },
+    {
+      "name": "Airtable",
+      "count": 55
+    },
+    {
+      "name": "Notion",
+      "count": 45
+    },
+    {
+      "name": "PostgreSQL",
+      "count": 38
+    },
+    {
+      "name": "HubSpot",
+      "count": 32
+    },
+    {
+      "name": "MySQL",
+      "count": 29
+    },
+    {
+      "name": "Stripe",
+      "count": 28
+    },
+    {
+      "name": "Jira",
+      "count": 25
+    },
+    {
+      "name": "GitHub",
+      "count": 24
+    },
+    {
+      "name": "Shopify",
+      "count": 22
+    },
+    {
+      "name": "Gemini",
+      "count": 21
+    },
+    {
+      "name": "Qdrant",
+      "count": 18
+    },
+    {
+      "name": "Pinecone",
+      "count": 11
+    },
+    {
+      "name": "WhatsApp",
+      "count": 10
+    },
+    {
+      "name": "Salesforce",
+      "count": 10
+    },
+    {
+      "name": "Discord",
+      "count": 7
+    },
+    {
+      "name": "Claude",
+      "count": 4
+    },
+    {
+      "name": "Redis",
+      "count": 4
+    }
+  ],
+  "triggers": [
+    {
+      "name": "Manual",
+      "count": 411
+    },
+    {
+      "name": "Event",
+      "count": 291
+    },
+    {
+      "name": "Schedule / Cron",
+      "count": 221
+    },
+    {
+      "name": "Webhook",
+      "count": 108
+    },
+    {
+      "name": "Email",
+      "count": 63
+    },
+    {
+      "name": "Chat",
+      "count": 53
+    },
+    {
+      "name": "Form",
+      "count": 52
+    }
+  ],
+  "licenses": [
+    {
+      "name": "MIT",
+      "count": 1037
+    }
+  ],
+  "origins": {
+    "original": 6,
+    "modified": 4,
+    "community": 0,
+    "curated": 1027
+  },
+  "security": {
+    "SAFE": 1028,
+    "MEDIUM": 9,
+    "HIGH": 0
+  }
+}

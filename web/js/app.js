@@ -1,6 +1,6 @@
 /**
  * web/js/app.js
- * FlowForge Studio - Searchable n8n Workflow Library Client Controller
+ * Atharv Studio - Searchable n8n Workflow Library Client Controller
  */
 
 let allWorkflows = [];
@@ -8,7 +8,7 @@ let filteredWorkflows = [];
 let categoriesData = [];
 let statsData = {};
 let brandingData = {};
-let favoritesSet = new Set(JSON.parse(localStorage.getItem('flowforge_favorites') || '[]'));
+let favoritesSet = new Set(JSON.parse(localStorage.getItem('atharv_favorites') || localStorage.getItem('flowforge_favorites') || '[]'));
 
 let currentTab = 'all';
 let currentPage = 1;
@@ -350,7 +350,7 @@ function createWorkflowCardHtml(wf) {
   
   let originBadge = '';
   if (wf.origin_type === 'original') {
-    originBadge = `<span class="badge-original">★ FlowForge Original</span>`;
+    originBadge = `<span class="badge-original">★ Atharv Original</span>`;
   } else if (wf.origin_type === 'modified') {
     originBadge = `<span class="badge-modified">⚡ Enhanced</span>`;
   }
@@ -422,7 +422,7 @@ function toggleFavorite(id, btn) {
     btn.classList.add('is-fav');
     showToast('Added to favorites ♥');
   }
-  localStorage.setItem('flowforge_favorites', JSON.stringify(Array.from(favoritesSet)));
+  localStorage.setItem('atharv_favorites', JSON.stringify(Array.from(favoritesSet)));
   document.getElementById('countFavorites').textContent = favoritesSet.size;
   if (currentTab === 'favorites') {
     applyFilters();
@@ -436,7 +436,7 @@ async function openWorkflowModal(wf) {
 
   document.getElementById('modalTitle').textContent = wf.title;
   document.getElementById('modalCategory').textContent = wf.category_name;
-  document.getElementById('modalOrigin').textContent = wf.origin_type === 'original' ? 'FlowForge Original' : (wf.origin_type === 'modified' ? 'FlowForge Enhanced' : 'Curated Community');
+  document.getElementById('modalOrigin').textContent = wf.origin_type === 'original' ? 'Atharv Original' : (wf.origin_type === 'modified' ? 'Atharv Enhanced' : 'Curated Community');
   document.getElementById('modalNodesCount').textContent = `${wf.node_count} nodes (${wf.complexity})`;
   document.getElementById('modalLicense').textContent = wf.license;
   document.getElementById('modalAuthor').textContent = wf.original_author;

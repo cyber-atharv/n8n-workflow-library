@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 scripts/serve.py
-Local lightweight HTTP server for FlowForge n8n Workflow Library.
+Local lightweight HTTP server for Atharv Studio n8n Workflow Library.
 Serves web interface and workflow catalog with CORS support.
 """
 
@@ -13,7 +13,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-class FlowForgeHTTPHandler(SimpleHTTPRequestHandler):
+class AtharvStudioHTTPHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(BASE_DIR), **kwargs)
 
@@ -46,11 +46,11 @@ def start_server(port=None):
         port = find_free_port(8080)
 
     server_address = ('127.0.0.1', port)
-    httpd = HTTPServer(server_address, FlowForgeHTTPHandler)
+    httpd = HTTPServer(server_address, AtharvStudioHTTPHandler)
     url = f"http://localhost:{port}/web/"
     
     print("=" * 65)
-    print("  [*] FlowForge Studio: n8n Workflow Library Running Locally")
+    print("  [*] Atharv Studio: n8n Workflow Library Running Locally")
     print(f"  [*] Web Application: {url}")
     print(f"  [*] Project Root:     {BASE_DIR}")
     print(f"  [*] Press Ctrl+C to stop the server")

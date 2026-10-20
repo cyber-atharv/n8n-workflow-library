@@ -1,4 +1,4 @@
-# Multi-stage Dockerfile for FlowForge n8n Workflow Library
+# Multi-stage Dockerfile for Atharv n8n Workflow Library
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -26,7 +26,6 @@ COPY WORKFLOW_MANIFEST.csv ./
 COPY workflow_manifest.json ./
 COPY validation_report.csv ./
 COPY duplicate_report.csv ./
-COPY license_audit.csv ./
 
 # Expose web application port
 EXPOSE 8080

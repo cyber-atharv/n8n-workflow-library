@@ -1,4 +1,4 @@
-# FlowForge n8n Workflow Library
+# Atharv Studio n8n Workflow Library
 # Python Dependencies (Python 3.10+)
 
 # Core parsing & HTTP utilities (standard library + minimal zero-bloat dependencies)

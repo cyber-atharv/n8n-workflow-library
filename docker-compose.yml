@@ -1,9 +1,9 @@
 services:
-  flowforge-library:
+  n8n-library:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: flowforge-n8n-library
+    container_name: atharv-n8n-library
     restart: unless-stopped
     ports:
       - "8080:8080"

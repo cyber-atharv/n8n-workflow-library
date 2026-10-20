@@ -1,426 +1,423 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Atharv Automation Studio — Explore 1,044+ n8n Workflows</title>
-<meta name="description" content="Explore, search, inspect visual node chains, and copy 1,044+ production-ready n8n automations created and curated by Atharv Hogade.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#070b16;--s1:#0d1424;--s2:#131c33;--line:#1f2b48;--tx:#eef2ff;--mu:#8795b8;--a:#38bdf8;--b:#a78bfa;--ok:#34d399;--warn:#fbbf24;
---ease:cubic-bezier(.23,1,.32,1);--hd:Outfit,system-ui,sans-serif;--sans:Inter,system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f4f6fd;--s1:#fff;--s2:#eef1fb;--line:#dbe1f3;--tx:#0e1530;--mu:#5d6a8d;--a:#0284c7;--b:#7c3aed}}
-:root[data-theme="light"]{--bg:#f4f6fd;--s1:#fff;--s2:#eef1fb;--line:#dbe1f3;--tx:#0e1530;--mu:#5d6a8d;--a:#0284c7;--b:#7c3aed}
-:root[data-theme="dark"]{--bg:#070b16;--s1:#0d1424;--s2:#131c33;--line:#1f2b48;--tx:#eef2ff;--mu:#8795b8;--a:#38bdf8;--b:#a78bfa}
-html{scroll-padding-top:env(safe-area-inset-top,0px);color-scheme:dark light}
-*{box-sizing:border-box;margin:0}
-body{background:var(--bg);color:var(--tx);font:400 15px/1.55 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-button,input,select{font:inherit;color:inherit}
-.mono{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
-.grad{background:linear-gradient(100deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
-nav{position:fixed;inset:0 0 auto;z-index:30;padding-top:env(safe-area-inset-top,0px);backdrop-filter:blur(16px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--line)}
-nav div{max-width:1280px;margin:auto;padding:0 20px;height:58px;display:flex;align-items:center;justify-content:space-between}
-.brand{font:700 18px var(--hd);display:flex;gap:10px;align-items:center;text-decoration:none;color:inherit}
-.brand i{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,var(--a),var(--b));box-shadow:0 0 24px color-mix(in srgb,var(--a) 60%,transparent)}
-.btn{display:inline-flex;gap:8px;align-items:center;padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:var(--s1);cursor:pointer;font-weight:500;text-decoration:none;color:var(--tx);transition:transform .16s var(--ease),border-color .2s}
-.btn:hover{border-color:var(--a)}.btn:active{transform:scale(.97)}
-.btn.p{background:linear-gradient(100deg,var(--a),var(--b));border:0;color:#04101f;font-weight:600}
-:focus-visible{outline:2px solid var(--a);outline-offset:2px}
-.hero{position:relative;min-height:100vh;display:grid;place-items:center;text-align:center;padding:100px 20px 60px;overflow:hidden}
-.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.35;will-change:transform}
-.o1{width:480px;height:480px;background:var(--a);left:-120px;top:10%}.o2{width:520px;height:520px;background:var(--b);right:-140px;top:30%}
-.floor{position:absolute;left:-20%;right:-20%;bottom:-10%;height:62%;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;transform:perspective(520px) rotateX(64deg);transform-origin:50% 100%;animation:fl 3s linear infinite;mask-image:linear-gradient(to top,#000 30%,transparent);-webkit-mask-image:linear-gradient(to top,#000 30%,transparent)}
-@keyframes fl{to{background-position:0 64px}}
-.hero>div{position:relative;z-index:2;max-width:860px;width:100%}
-h1{font:800 clamp(42px,8vw,96px)/.98 var(--hd);letter-spacing:-.04em;margin:16px 0 18px;text-wrap:balance}
-.sub{color:var(--mu);font-size:18px;max-width:52ch;margin:0 auto 30px}
-.sb{display:flex;align-items:center;gap:12px;background:color-mix(in srgb,var(--s1) 85%,transparent);border:1px solid var(--line);border-radius:16px;padding:6px 10px 6px 18px;backdrop-filter:blur(10px);box-shadow:0 20px 60px -20px color-mix(in srgb,var(--a) 50%,transparent);transition:border-color .2s}
-.sb:focus-within{border-color:var(--a)}
-.sb input{flex:1;background:none;border:0;outline:0;padding:14px 0;font-size:17px}
-kbd{font:500 12px var(--mono);border:1px solid var(--line);border-radius:6px;padding:2px 8px;color:var(--mu)}
-.stats{display:flex;justify-content:center;gap:clamp(20px,5vw,60px);margin-top:44px;flex-wrap:wrap}
-.stats b{display:block;font:700 clamp(30px,5vw,48px) var(--hd);letter-spacing:-.03em}
-.scroll{position:absolute;bottom:22px;left:50%;translate:-50% 0;z-index:3;animation:bob 1.8s var(--ease) infinite}
-@keyframes bob{50%{transform:translateY(8px)}}
-.bar{position:sticky;top:58px;z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding-top:0}
-.bar>div{max-width:1280px;margin:auto;padding:12px 20px;display:flex;gap:10px;align-items:center}
-.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;flex:1;mask-image:linear-gradient(90deg,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,#000 92%,transparent)}
-.chip{flex:none;padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--s1);cursor:pointer;font-size:13px;color:var(--mu);transition:all .2s var(--ease)}
-.chip:hover{color:var(--tx)}.chip.on{background:linear-gradient(100deg,var(--a),var(--b));border-color:transparent;color:#04101f;font-weight:600}
-select{background:var(--s1);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:13px}
-.cnt{max-width:1280px;margin:28px auto 8px;padding:0 20px;display:flex;justify-content:space-between}
-.grid{max-width:1280px;margin:auto;padding:12px 20px 80px;display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px;perspective:1100px}
-.card{will-change:transform,opacity;transform-style:preserve-3d}
-.ci{height:100%;display:flex;flex-direction:column;gap:12px;padding:20px;border-radius:18px;background:linear-gradient(160deg,var(--s2),var(--s1));border:1px solid var(--line);cursor:pointer;position:relative;overflow:hidden;transition:border-color .25s,transform .2s var(--ease);text-align:left;width:100%}
-.ci::before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,hsl(var(--h) 90% 62%),transparent)}
-.ci:hover{border-color:hsl(var(--h) 80% 60%)}
-.pill{align-self:flex-start;font:500 11px var(--mono);padding:3px 9px;border-radius:99px;background:hsl(var(--h) 80% 60%/.14);color:hsl(var(--h) 85% 68%)}
-.ci h3{font:600 18px/1.25 var(--hd);letter-spacing:-.01em}
-.ci p{color:var(--mu);font-size:13.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.chain{display:flex;align-items:center;gap:4px;margin-top:auto;flex-wrap:wrap}
-.chain span{font:500 10.5px var(--mono);padding:3px 7px;border-radius:6px;background:var(--bg);border:1px solid var(--line);color:var(--mu)}
-.chain i{width:10px;height:1px;background:var(--mu)}
-.meta{display:flex;justify-content:space-between;align-items:center}
-.dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:6px;background:var(--ok)}.dot.r{background:var(--warn)}
-.star{color:var(--warn)}
-.empty{grid-column:1/-1;text-align:center;padding:80px 0;color:var(--mu)}
-#more{height:60px}
-.mb{position:fixed;inset:0;z-index:60;background:rgba(3,6,14,.72);backdrop-filter:blur(10px);display:none;place-items:center;padding:16px}
-.mb.on{display:grid}
-.m{width:min(980px,100%);max-height:92vh;overflow:auto;border:1px solid var(--line);border-radius:22px;background:var(--s1);animation:pop .5s var(--ease)}
-@keyframes pop{from{opacity:0;transform:perspective(900px) rotateX(14deg) translateY(30px) scale(.96)}}
-.mh{padding:26px 26px 14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.mh h2{font:700 clamp(22px,3.4vw,32px)/1.1 var(--hd);letter-spacing:-.02em;margin:8px 0}
-.tags{display:flex;gap:6px;flex-wrap:wrap}.tags span{font:500 11px var(--mono);padding:3px 9px;border:1px solid var(--line);border-radius:6px;color:var(--mu)}
-.acts{display:flex;gap:8px;align-items:flex-start}
-.gv{margin:8px 26px;border:1px solid var(--line);border-radius:14px;background:var(--bg);overflow-x:auto;background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:20px 20px}
-.gv svg{display:block;min-width:700px;width:100%}
-.nd rect{fill:var(--s2);stroke:var(--line);stroke-width:1.2}.nd text{fill:var(--tx);font:500 12px var(--mono)}.nd text.t{fill:var(--mu);font-size:10px}
-.nd{opacity:0;transform:translateY(10px);animation:nin .6s var(--ease) forwards}
-@keyframes nin{to{opacity:1;transform:none}}
-.ew{fill:none;stroke:var(--a);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1;animation:dr .8s var(--ease) forwards}
-@keyframes dr{to{stroke-dashoffset:0}}
-.mf{padding:16px 26px 26px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.mf p{color:var(--mu);font-size:14px;margin-top:6px}.mf ol{margin:8px 0 0 18px;color:var(--mu);font-size:14px;line-height:1.9}
-.x{position:absolute}
-#toast{position:fixed;bottom:calc(24px + env(safe-area-inset-bottom,0px));left:50%;translate:-50% 20px;opacity:0;z-index:99;background:var(--s2);border:1px solid var(--a);padding:12px 18px;border-radius:12px;transition:all .4s var(--ease);pointer-events:none}
-#toast.on{opacity:1;translate:-50% 0}
-.glow{position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(480px circle at var(--mx,50%) var(--my,30%),color-mix(in srgb,var(--a) 9%,transparent),transparent 60%)}
-#top{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--a),var(--b));z-index:99}
-@media(max-width:700px){.mf{grid-template-columns:1fr}.bar select{display:none}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.nd{opacity:1}.ew{stroke-dashoffset:0}}
-</style></head>
-<body>
-<div id="top"></div>
-<nav>
-  <div>
-    <a class="brand" href="index.html"><i></i>Atharv Automation Studio</a>
-    <span style="display:flex;gap:10px;align-items:center">
-      <span class="mono" id="src"></span>
-      <a class="btn" href="index.html">← Landing Page</a>
-      <a class="btn p" href="https://github.com/cyber-atharv/n8n-workflow-library" target="_blank" rel="noopener">GitHub ↗</a>
-    </span>
-  </div>
-</nav>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atharv Automation Studio | Enterprise n8n Workflow Library</title>
+  <meta name="description" content="Searchable, verified library of 1,000+ enterprise n8n automation workflows across 30 categories with interactive node visualizer.">
+  
+  <!-- Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="theme-dark">
 
-<header class="hero">
-  <div class="orb o1" data-p=".12"></div><div class="orb o2" data-p="-.1"></div><div class="floor"></div>
-  <div>
-    <span class="mono">Atharv Studio · 100% Tested · MIT License</span>
-    <h1>Explore every <span class="grad">workflow.</span></h1>
-    <p class="sub">Search, inspect and import 1,044+ production-ready n8n automations. Click any card to visualize nodes and copy directly to n8n canvas.</p>
-    <label class="sb">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <input id="q" placeholder="Search AI agent, Slack, Shopify, webhook, RAG…" autocomplete="off" aria-label="Search workflows">
-      <kbd>/</kbd>
-    </label>
-    <div class="stats">
-      <div><b data-k="tw">0</b><span class="mono">Workflows</span></div>
-      <div><b data-k="tc">0</b><span class="mono">Categories</span></div>
-      <div><b data-k="ti">0</b><span class="mono">Integrations</span></div>
-    </div>
-  </div>
-  <div class="scroll mono">Scroll ↓</div>
-</header>
+  <!-- Header / Navigation -->
+  <header class="app-header" id="appHeader">
+    <div class="header-container">
+      <a href="index.html" class="brand-group" style="text-decoration:none;color:inherit;cursor:pointer">
+        <div class="brand-logo" id="brandLogo">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title-row">
+            <h1 class="brand-name" id="brandName">Atharv Automation Studio</h1>
+            <span class="badge badge-accent">v2.5 Enterprise</span>
+          </div>
+          <p class="brand-tagline" id="brandTagline">The Enterprise-Grade n8n Workflow Library & Automation Engine</p>
+        </div>
+      </a>
 
-<div class="bar" id="bar">
-  <div>
-    <div class="chips" id="chips"></div>
-    <select id="cx" aria-label="Complexity">
-      <option value="">Any complexity</option>
-      <option>Simple</option>
-      <option>Moderate</option>
-      <option>Advanced</option>
-    </select>
-    <select id="so" aria-label="Sort">
-      <option value="f">Featured first</option>
-      <option value="a">A–Z</option>
-      <option value="n">Most nodes</option>
-    </select>
-  </div>
-</div>
-
-<div class="cnt">
-  <span class="mono" id="rc"></span>
-  <span class="mono">Click a card for the node graph</span>
-</div>
-
-<main class="grid" id="grid"></main>
-<div id="more"></div>
-
-<div class="mb" id="mb" role="dialog" aria-modal="true"><div class="m" id="m"></div></div>
-<div id="toast"></div>
-
-<script>
-const $=s=>document.querySelector(s),reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
-const CATS=["AI Agents & LLMs","OpenAI & AI Integrations","Databases & SQL","Email & Gmail","Slack & Messaging","E-commerce","CRM & Sales","Google Workspace","Webhooks & APIs","RSS & News Monitoring"];
-let W=[],ST=null,cat="",cx="",q="",so="f",list=[],shown=0;
-const PAGE=18;
-
-function demo(){
-  const V=["Autonomous","Smart","Automated","Realtime","Scheduled","AI-Powered"],O=["Lead Enrichment","Invoice Parser","Support Triage","Content Repurposer","Order Alerts","Data Sync","Report Builder","Slack Digest","Sentiment Monitor"],I=["OpenAI","Slack","HubSpot","Gmail","Google Sheets","Shopify","Notion","Telegram","Airtable","Postgres","Discord","HTTP Request"],T=["Webhook","Schedule","Manual"];
-  return Array.from({length:60},(_,i)=>{
-    const n=3+(i*7)%14,ints=[I[i%12],I[(i*5+3)%12],I[(i*7+1)%12]].filter((x,k,a)=>a.indexOf(x)==k),tr=T[i%3],c=CATS[i%10];
-    const lab=[tr,...Array.from({length:Math.min(n,8)-1},(_,k)=>ints[k%ints.length])];
-    return{id:"d"+i,title:`${V[i%6]} ${O[i%9]}${i>=18?" v"+(1+(i/18|0)):""}`,category_name:c,category_id:c,node_count:n,complexity:n<6?"Simple":n<16?"Moderate":"Advanced",integrations:ints,triggers:[tr],has_credentials:i%3>0,description:`Production-ready ${O[i%9].toLowerCase()} flow using ${ints.join(", ")}. Trigger: ${tr}.`,is_original:i<4,license:"MIT",risk_level:i%4?"SAFE":"REVIEW",maintainer:"Atharv Hogade (cyber-atharv)",catalog_rel_path:"",nodes_summary:lab.map((l,k)=>({name:l+" "+(k+1),label:l,type:"n8n-nodes-base."+l.toLowerCase().replace(/\W/g,"")}))}
-  });
-}
-
-async function load(){
-  let src="live data";
-  try{
-    const r=await fetch("data/index.json");
-    if(!r.ok)throw 0;
-    W=await r.json();
-    try{ST=await (await fetch("data/stats.json")).json()}catch{}
-  }catch{
-    W=demo();
-    src="demo data";
-  }
-  $("#src").textContent=src;
-
-  // Read URL search params for deep linking from landing page
-  const params=new URLSearchParams(window.location.search);
-  const initCat=params.get("cat")||params.get("c")||params.get("category")||"";
-  const initQ=params.get("q")||params.get("search")||"";
-  if(initCat) cat=initCat;
-  if(initQ){ q=initQ; $("#q").value=q; }
-
-  const cats=[...new Set(W.map(w=>w.category_name))].sort();
-  const ti=ST?.integrations?.length||new Set(W.flatMap(w=>w.integrations)).size;
-  const tgt={tw:ST?.total_workflows||W.length,tc:ST?.total_categories||cats.length,ti};
-  document.querySelectorAll("[data-k]").forEach(e=>count(e,tgt[e.dataset.k]));
-
-  $("#chips").innerHTML=`<button class="chip ${!cat?'on':''}" data-c="">All</button>`+cats.map(c=>`<button class="chip ${cat===c?'on':''}" data-c="${c.replace(/"/g,"&quot;")}">${c}</button>`).join("");
-  apply();
-}
-
-function count(e,t){
-  const s=performance.now();
-  (function f(n){
-    const k=Math.min(1,(n-s)/1600);
-    e.textContent=Math.round(t*(1-(1-k)**4)).toLocaleString();
-    if(k<1)requestAnimationFrame(f);
-  })(s);
-}
-
-function apply(){
-  const s=q.toLowerCase().trim();
-  list=W.filter(w=>(!cat||w.category_name===cat)&&(!cx||w.complexity===cx)&&(!s||w.title.toLowerCase().includes(s)||(w.description||"").toLowerCase().includes(s)||w.integrations.some(i=>i.toLowerCase().includes(s))));
-  if(so=="a")list.sort((a,b)=>a.title.localeCompare(b.title));
-  else if(so=="n")list.sort((a,b)=>b.node_count-a.node_count);
-  else list.sort((a,b)=>(b.is_original|0)-(a.is_original|0));
-
-  $("#rc").textContent=`${list.length.toLocaleString()} workflows`;
-  $("#grid").innerHTML="";
-  shown=0;
-  more();
-  if(!list.length)$("#grid").innerHTML=`<div class="empty">No workflows match. Try another search.</div>`;
-}
-
-const hue=n=>190+([...n].reduce((a,c)=>a+c.charCodeAt(0),0)*7)%110;
-
-function more(){
-  const g=$("#grid"),f=document.createDocumentFragment();
-  list.slice(shown,shown+PAGE).forEach((w,j)=>{
-    const c=document.createElement("div");
-    c.className="card";
-    const ch=(w.nodes_summary||[]).slice(0,4).map(n=>`<span>${n.label}</span>`).join("<i></i>");
-    c.innerHTML=`<button class="ci" style="--h:${hue(w.category_name)}"><span class="pill">${w.category_name}</span><h3>${w.is_original?'<span class="star">★</span> ':""}${w.title}</h3><p>${w.description||""}</p><div class="chain">${ch}${w.node_count>4?`<i></i><span>+${w.node_count-4}</span>`:""}</div><div class="meta mono"><span>${w.node_count} nodes · ${w.complexity}</span><span><span class="dot ${w.risk_level=="SAFE"?"":"r"}"></span>${w.risk_level||"SAFE"}</span></div></button>`;
-    const ci=c.firstChild;
-    ci.onclick=()=>open(w);
-    if(!reduce&&matchMedia("(hover:hover)").matches){
-      ci.onpointermove=e=>{
-        const r=ci.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
-        ci.style.transform=`rotateY(${x*10}deg) rotateX(${-y*10}deg) translateZ(10px)`;
-      };
-      ci.onpointerleave=()=>ci.style.transform="";
-    }
-    f.append(c);
-  });
-  g.append(f);
-  shown+=PAGE;
-  tick();
-}
-
-let tk=false;
-function tick(){if(!tk){tk=true;requestAnimationFrame(frame)}}
-function frame(){
-  tk=false;
-  const h=innerHeight;
-  $("#top").style.width=scrollY/(document.body.scrollHeight-h)*100+"%";
-  document.querySelectorAll(".orb").forEach(o=>o.style.transform=`translateY(${scrollY*o.dataset.p}px)`);
-  if(reduce)return;
-  document.querySelectorAll(".card").forEach(c=>{
-    const r=c.getBoundingClientRect();
-    if(r.bottom<-200||r.top>h+200)return;
-    const d=Math.max(-1,Math.min(1,(r.top+r.height/2-h/2)/(h/2)));
-    c.style.transform=`rotateX(${d*16}deg) translateZ(${-Math.abs(d)*90}px) scale(${1-Math.abs(d)*.04})`;
-    c.style.opacity=1-Math.max(0,Math.abs(d)-.55)*.9;
-  });
-}
-addEventListener("scroll",tick,{passive:true});
-addEventListener("resize",tick);
-new IntersectionObserver(e=>{if(e[0].isIntersecting&&shown<list.length)more()},{rootMargin:"400px"}).observe($("#more"));
-
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-
-function graph(ns){
-  ns=ns.slice(0,8);
-  const X=i=>30+170*(i%4),Y=i=>30+100*(i/4|0),rows=Math.ceil(ns.length/4);
-  let s=`<svg viewBox="0 0 720 ${rows*100+40}">`;
-  for(let i=0;i<ns.length-1;i++){
-    const x1=X(i)+130,y1=Y(i)+25,x2=X(i+1),y2=Y(i+1)+25,dx=Math.abs(x2-x1)*.5||40;
-    s+=`<path class="ew" pathLength="1" style="animation-delay:${i*.15+.2}s" d="M${x1} ${y1} C ${x1+dx} ${y1},${x2-dx} ${y2},${x2} ${y2}"/>`;
-  }
-  ns.forEach((n,i)=>s+=`<g class="nd" style="animation-delay:${i*.12}s"><rect x="${X(i)}" y="${Y(i)}" width="130" height="50" rx="11"/><text x="${X(i)+12}" y="${Y(i)+22}">${esc(n.label||"")}</text><text class="t" x="${X(i)+12}" y="${Y(i)+38}">${esc((n.name||"").slice(0,18))}</text></g>`);
-  return s+"</svg>";
-}
-
-let cur=null;
-function open(w){
-  cur=w;
-  $("#m").innerHTML=`<div class="mh">
-    <div>
-      <span class="pill" style="--h:${hue(w.category_name)};display:inline-block;font:500 11px var(--mono);padding:3px 9px;border-radius:99px;background:hsl(${hue(w.category_name)} 80% 60%/.14);color:hsl(${hue(w.category_name)} 85% 68%)">${esc(w.category_name)}</span>
-      <h2>${w.is_original?'<span class="star">★</span> ':""}${esc(w.title)}</h2>
-      <div class="tags">
-        <span>${w.node_count} nodes</span>
-        <span>${esc(w.complexity)}</span>
-        <span>${esc(w.license||"MIT")}</span>
-        <span>${esc(w.risk_level||"SAFE")}</span>
-        <span>${w.is_original?'Atharv Original':'Atharv Curated'}</span>
+      <div class="header-actions">
+        <div class="header-stat-pill">
+          <span class="stat-dot"></span>
+          <span id="headerTotalCount">1,044</span> Workflows Indexed
+        </div>
+        <a href="index.html" class="btn btn-secondary">
+          <span>← Landing Page</span>
+        </a>
+        <a href="https://github.com/cyber-atharv/n8n-workflow-library" target="_blank" rel="noopener" class="btn btn-secondary" id="githubRepoLink">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          <span>GitHub</span>
+        </a>
       </div>
     </div>
-    <div class="acts">
-      <button class="btn p" id="cp">Copy workflow (Ctrl+V)</button>
-      <button class="btn" id="dl">Download JSON</button>
-      <button class="btn" id="cl" aria-label="Close">✕</button>
+  </header>
+
+  <!-- Hero & Primary Search -->
+  <section class="hero-section" id="heroSection">
+    <div class="hero-container">
+      <div class="hero-badge">
+        <span class="pulse-icon"></span> 100% Deduplicated & Open Source License Audited
+      </div>
+      <h2 class="hero-headline">Instant Production Workflows for Modern Automation</h2>
+      <p class="hero-subtext">Explore, inspect, visualize, and import validated n8n templates directly onto your canvas with one click.</p>
+      
+      <!-- Search Input Container -->
+      <div class="search-box-wrapper">
+        <div class="search-input-box">
+          <svg class="search-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="searchInput" placeholder="Search by name, AI agent, Slack, Shopify, webhook, RAG, prompt..." autocomplete="off">
+          <span class="search-shortcut-badge" title="Press / to focus">/</span>
+          <button class="clear-search-btn" id="clearSearchBtn" title="Clear search">✕</button>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Bar -->
+      <div class="hero-metrics-bar">
+        <div class="metric-item">
+          <span class="metric-number" id="metricTotal">1,032</span>
+          <span class="metric-label">Curated Workflows</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-item">
+          <span class="metric-number">30</span>
+          <span class="metric-label">Enterprise Categories</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-item">
+          <span class="metric-number" id="metricIntegrations">85+</span>
+          <span class="metric-label">Nodes & Services</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-item">
+          <span class="metric-number" id="metricOriginals">5</span>
+          <span class="metric-label">Atharv Originals</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Layout -->
+  <main class="main-container">
+    
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs-wrapper" id="navTabs">
+      <div class="nav-tabs">
+        <button class="nav-tab active" data-tab="all" id="tabAll">
+          <span>All Workflows</span>
+          <span class="tab-count" id="countAll">0</span>
+        </button>
+        <button class="nav-tab" data-tab="originals" id="tabOriginals">
+          <span class="tab-star">★</span>
+          <span>Atharv Originals</span>
+          <span class="tab-count" id="countOriginals">0</span>
+        </button>
+        <button class="nav-tab" data-tab="modified" id="tabModified">
+          <span>Enhanced & Hardened</span>
+          <span class="tab-count" id="countModified">0</span>
+        </button>
+        <button class="nav-tab" data-tab="favorites" id="tabFavorites">
+          <span>Favorites</span>
+          <span class="tab-count" id="countFavorites">0</span>
+        </button>
+        <button class="nav-tab" data-tab="security-audit" id="tabSecurityAudit">
+          <span>Security & Health</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Filter Control Drawer / Bar -->
+    <section class="filters-section" id="filtersSection">
+      <div class="filters-row">
+        <!-- Category Filter -->
+        <div class="filter-group">
+          <label for="categoryFilter" class="filter-label">Category</label>
+          <select id="categoryFilter" class="custom-select">
+            <option value="">All 30 Categories</option>
+          </select>
+        </div>
+
+        <!-- Integration Filter -->
+        <div class="filter-group">
+          <label for="integrationFilter" class="filter-label">Integration</label>
+          <select id="integrationFilter" class="custom-select">
+            <option value="">All Integrations</option>
+          </select>
+        </div>
+
+        <!-- Trigger Filter -->
+        <div class="filter-group">
+          <label for="triggerFilter" class="filter-label">Trigger</label>
+          <select id="triggerFilter" class="custom-select">
+            <option value="">All Triggers</option>
+          </select>
+        </div>
+
+        <!-- Complexity Filter -->
+        <div class="filter-group">
+          <label for="complexityFilter" class="filter-label">Complexity</label>
+          <select id="complexityFilter" class="custom-select">
+            <option value="">All Levels</option>
+            <option value="Simple">Simple (1-5 nodes)</option>
+            <option value="Moderate">Moderate (6-15 nodes)</option>
+            <option value="Advanced">Advanced (16+ nodes)</option>
+          </select>
+        </div>
+
+        <!-- Credentials Filter -->
+        <div class="filter-group">
+          <label for="credentialsFilter" class="filter-label">Credentials</label>
+          <select id="credentialsFilter" class="custom-select">
+            <option value="">Any</option>
+            <option value="no-creds">No Credentials Needed</option>
+            <option value="has-creds">Credentials Required</option>
+          </select>
+        </div>
+
+        <!-- Sort By -->
+        <div class="filter-group sort-group">
+          <label for="sortBy" class="filter-label">Sort</label>
+          <select id="sortBy" class="custom-select">
+            <option value="featured">Featured / Originals First</option>
+            <option value="name-asc">Title: A-Z</option>
+            <option value="name-desc">Title: Z-A</option>
+            <option value="nodes-desc">Nodes: High to Low</option>
+            <option value="nodes-asc">Nodes: Low to High</option>
+          </select>
+        </div>
+
+        <!-- Reset Filters Button -->
+        <div class="filter-group reset-group">
+          <button class="btn btn-outline" id="resetFiltersBtn" title="Reset all filters">Reset Filters</button>
+        </div>
+      </div>
+
+      <!-- Active Filter Tags Display -->
+      <div class="active-tags-container" id="activeTagsContainer"></div>
+    </section>
+
+    <!-- Workflow Catalog Grid View -->
+    <section class="catalog-view" id="catalogView">
+      <div class="view-header">
+        <div class="view-title-group">
+          <h3 class="view-title" id="currentViewTitle">All Workflows</h3>
+          <span class="results-badge" id="resultsCount">Loading...</span>
+        </div>
+        <div class="view-controls">
+          <span class="pagination-summary" id="paginationSummary">Showing 1-18</span>
+        </div>
+      </div>
+
+      <!-- Workflow Cards Grid -->
+      <div class="workflows-grid" id="workflowsGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="emptyState" style="display: none;">
+        <div class="empty-icon">🔍</div>
+        <h4>No matching workflows found</h4>
+        <p>Try broadening your search term or resetting your category/integration filters.</p>
+        <button class="btn btn-primary" id="emptyResetBtn">Clear All Filters</button>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination-bar" id="paginationBar">
+        <button class="btn btn-pagination" id="prevPageBtn" disabled>← Previous</button>
+        <div class="page-numbers" id="pageNumbers"></div>
+        <button class="btn btn-pagination" id="nextPageBtn">Next →</button>
+      </div>
+    </section>
+
+      <!-- Security & Health Tab View (Hidden by default) -->
+    <section class="audit-view" id="securityAuditView" style="display: none;">
+      <div class="view-header">
+        <div>
+          <h3 class="view-title">Automated Security & Integrity Audit</h3>
+          <p class="view-subtitle">Multi-point static analysis: shell execution checks, secret masking, and community node dependencies.</p>
+        </div>
+      </div>
+      <div class="security-grid">
+        <div class="sec-stat-card safe-card">
+          <div class="sec-stat-icon">🛡️</div>
+          <div class="sec-stat-number" id="secSafeCount">747</div>
+          <div class="sec-stat-label">Structurally Plausible & Safe</div>
+          <p class="sec-stat-desc">Zero execution vulnerabilities. Ready for instant canvas deployment.</p>
+        </div>
+        <div class="sec-stat-card review-card">
+          <div class="sec-stat-icon">⚠️</div>
+          <div class="sec-stat-number" id="secReviewCount">297</div>
+          <div class="sec-stat-label">Manual Review Recommended</div>
+          <p class="sec-stat-desc">Workflows requiring configured credentials, external HTTP endpoints, or specialized nodes.</p>
+        </div>
+        <div class="sec-stat-card clean-card">
+          <div class="sec-stat-icon">🔒</div>
+          <div class="sec-stat-number">100%</div>
+          <div class="sec-stat-label">Secrets Redacted</div>
+          <p class="sec-stat-desc">All API keys, tokens, and credentials masked in logs and manifests.</p>
+        </div>
+        <div class="sec-stat-card dedup-card">
+          <div class="sec-stat-icon">✨</div>
+          <div class="sec-stat-number">0</div>
+          <div class="sec-stat-label">Duplicate Workflows</div>
+          <p class="sec-stat-desc">Rigorous SHA-256 and AST structural deduplication applied.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Workflow Detail Modal with Interactive Visualizer -->
+  <div class="modal-backdrop" id="workflowModal" style="display: none;">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <div class="modal-category-pill" id="modalCategory">Category</div>
+          <h3 class="modal-title" id="modalTitle">Workflow Title</h3>
+          <div class="modal-meta-row" id="modalMetaRow">
+            <span class="meta-tag" id="modalOrigin">Atharv Original</span>
+            <span class="meta-tag" id="modalNodesCount">6 nodes</span>
+            <span class="meta-tag" id="modalLicense">MIT</span>
+            <span class="meta-tag" id="modalAuthor">Author</span>
+          </div>
+        </div>
+        <div class="modal-header-actions">
+          <button class="btn btn-primary" id="modalCopyBtn" title="Copy workflow JSON to clipboard">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span>Copy Workflow (Ctrl+V)</span>
+          </button>
+          <button class="btn btn-secondary" id="modalDownloadBtn" title="Download .json file">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Download</span>
+          </button>
+          <button class="modal-close-btn" id="modalCloseBtn" title="Close modal">✕</button>
+        </div>
+      </div>
+
+      <!-- Modal Tabs -->
+      <div class="modal-tabs">
+        <button class="modal-tab active" data-m-tab="visualizer" id="mTabVisualizer">Interactive Node Graph</button>
+        <button class="modal-tab" data-m-tab="breakdown" id="mTabBreakdown">Nodes & Config</button>
+        <button class="modal-tab" data-m-tab="json" id="mTabJson">Workflow JSON</button>
+        <button class="modal-tab" data-m-tab="instructions" id="mTabInstructions">10s Import Guide</button>
+        <button class="modal-tab" data-m-tab="similar" id="mTabSimilar">Similar Workflows</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        
+        <!-- Tab 1: Interactive Node Flow Visualizer -->
+        <div class="modal-tab-content active" id="contentVisualizer">
+          <div class="visualizer-container">
+            <div class="visualizer-toolbar">
+              <span class="viz-hint">💡 Visual Architecture Map</span>
+              <div class="viz-actions">
+                <button class="btn btn-sm btn-outline" id="vizZoomInBtn">Zoom +</button>
+                <button class="btn btn-sm btn-outline" id="vizZoomOutBtn">Zoom -</button>
+                <button class="btn btn-sm btn-outline" id="vizResetBtn">Fit</button>
+              </div>
+            </div>
+            <div class="canvas-viewport" id="canvasViewport">
+              <svg id="nodeGraphSvg" class="node-graph-svg" width="100%" height="450"></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Nodes & Config Breakdown -->
+        <div class="modal-tab-content" id="contentBreakdown">
+          <div class="breakdown-container">
+            <div class="breakdown-desc-box">
+              <h4>Description & Architecture</h4>
+              <p id="modalDescription">Workflow description goes here.</p>
+            </div>
+            <div class="breakdown-grid">
+              <div class="breakdown-card">
+                <h5>Integrations Used</h5>
+                <div class="pills-list" id="modalIntegrationsList"></div>
+              </div>
+              <div class="breakdown-card">
+                <h5>Execution Triggers</h5>
+                <div class="pills-list" id="modalTriggersList"></div>
+              </div>
+              <div class="breakdown-card">
+                <h5>Credentials Required</h5>
+                <div class="pills-list" id="modalCredentialsList"></div>
+              </div>
+            </div>
+            <div class="nodes-list-box">
+              <h5>Node Sequence</h5>
+              <div class="nodes-table" id="modalNodesTable"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Raw Workflow JSON -->
+        <div class="modal-tab-content" id="contentJson">
+          <div class="json-viewer-wrapper">
+            <pre><code id="modalJsonCode" class="json-code">Loading workflow JSON...</code></pre>
+          </div>
+        </div>
+
+        <!-- Tab 4: 10-Second Import Guide -->
+        <div class="modal-tab-content" id="contentInstructions">
+          <div class="import-guide-container">
+            <div class="guide-step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>Copy the Workflow JSON</h4>
+                <p>Click the <strong>Copy Workflow (Ctrl+V)</strong> button in the top right of this modal. The valid n8n workflow definition is copied directly to your clipboard.</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>Open Your n8n Canvas</h4>
+                <p>Navigate to your self-hosted or n8n Cloud instance. Create a new workflow or open an existing canvas.</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>Paste Directly on Canvas (<kbd>Ctrl+V</kbd> / <kbd>Cmd+V</kbd>)</h4>
+                <p>Click anywhere on the blank n8n canvas and press <strong>Ctrl+V</strong> (or <strong>Cmd+V</strong> on macOS). The nodes and connection wires will appear instantly!</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h4>Connect Your Credentials & Execute</h4>
+                <p>Click on any node displaying a warning icon to attach your API credentials (e.g. OpenAI, Slack, Google). Click <strong>Test step</strong> to run your workflow.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 5: Similar Workflows -->
+        <div class="modal-tab-content" id="contentSimilar">
+          <div class="similar-workflows-grid" id="similarWorkflowsGrid">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
-  <div class="gv">${graph(w.nodes_summary||[])}</div>
-  <div class="mf">
-    <div>
-      <span class="mono">About</span>
-      <p>${esc(w.description||"")}</p>
-      <p style="margin-top:12px"><span class="mono">Integrations</span><br>${esc((w.integrations||[]).join(" · ") || "Standard Nodes")}</p>
-      <p><span class="mono">Triggers</span><br>${esc((w.triggers||[]).join(" · ") || "Webhook")}${w.has_credentials?" · credentials required":" · no credentials"}</p>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="footer-title" id="footerBrandName">Atharv Automation Studio</span>
+        <span class="footer-text">Created & curated by Atharv Hogade (@cyber-atharv). Production automation library.</span>
+      </div>
+      <div class="footer-links">
+        <a href="#tabSecurityAudit" onclick="switchMainTab('security-audit')">Security Audit</a>
+        <a href="https://github.com/cyber-atharv/n8n-workflow-library" target="_blank" rel="noopener">GitHub Repository</a>
+        <a href="https://n8n.io" target="_blank" rel="noopener">n8n Documentation</a>
+      </div>
     </div>
-    <div>
-      <span class="mono">10-second import guide</span>
-      <ol>
-        <li>Click <strong>Copy workflow</strong> (or Download JSON)</li>
-        <li>Open your self-hosted or cloud n8n canvas</li>
-        <li>Press <strong>Ctrl+V</strong> (or <strong>Cmd+V</strong> on Mac)</li>
-        <li>Attach your API credentials and activate</li>
-      </ol>
-    </div>
-  </div>`;
+  </footer>
 
-  $("#mb").classList.add("on");
-  document.body.style.overflow="hidden";
-
-  $("#cl").onclick=close;
-  $("#cp").onclick=async()=>{
-    const t=JSON.stringify(await wf(w),null,2);
-    try{
-      await navigator.clipboard.writeText(t);
-      toast("✓ Copied workflow! Paste directly on n8n canvas (Ctrl+V)");
-    }catch{
-      toast("Clipboard blocked — use Download button");
-    }
-  };
-  $("#dl").onclick=async()=>{
-    const b=new Blob([JSON.stringify(await wf(w),null,2)],{type:"application/json"}),a=document.createElement("a");
-    a.href=URL.createObjectURL(b);
-    a.download=(w.slug||w.title||"workflow")+".json";
-    a.click();
-  };
-}
-
-async function fetchWorkflowData(relPath){
-  if(!relPath) return null;
-  const isWebDir=window.location.pathname.includes('/web/');
-  const candidates=isWebDir
-    ? ['../'+relPath, './'+relPath, relPath]
-    : ['./'+relPath, relPath, '../'+relPath];
-
-  candidates.push('https://raw.githubusercontent.com/cyber-atharv/n8n-workflow-library/main/'+encodeURI(relPath));
-
-  for(const url of candidates){
-    try{
-      const res=await fetch(url);
-      if(res.ok) return await res.json();
-    }catch(_){}
-  }
-  return null;
-}
-
-async function wf(w){
-  if(w.catalog_rel_path){
-    const data=await fetchWorkflowData(w.catalog_rel_path);
-    if(data) return data;
-  }
-  const ns=w.nodes_summary||[];
-  return{
-    name:w.title,
-    nodes:ns.map((n,i)=>({
-      id:String(i+1),
-      name:n.name,
-      type:n.type||"n8n-nodes-base.noOp",
-      typeVersion:1,
-      position:[200+i*250,300],
-      parameters:{}
-    })),
-    connections:Object.fromEntries(ns.slice(0,-1).map((n,i)=>[n.name,{main:[[{node:ns[i+1].name,type:"main",index:0}]]}])),
-    description:w.description
-  };
-}
-
-function close(){
-  $("#mb").classList.remove("on");
-  document.body.style.overflow="";
-}
-$("#mb").onclick=e=>{if(e.target.id=="mb")close()};
-
-function toast(t){
-  const e=$("#toast");
-  e.textContent=t;
-  e.classList.add("on");
-  clearTimeout(e._t);
-  e._t=setTimeout(()=>e.classList.remove("on"),2800);
-}
-
-$("#q").oninput=e=>{q=e.target.value;apply()};
-$("#chips").onclick=e=>{
-  const b=e.target.closest(".chip");
-  if(!b)return;
-  document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",c===b));
-  cat=b.dataset.c;
-  apply();
-};
-$("#cx").onchange=e=>{cx=e.target.value;apply()};
-$("#so").onchange=e=>{so=e.target.value;apply()};
-
-addEventListener("keydown",e=>{
-  if(e.key=="Escape")close();
-  if(e.key=="/"&&document.activeElement.tagName!="INPUT"){
-    e.preventDefault();
-    $("#q").focus();
-    scrollTo({top:0,behavior:"smooth"});
-  }
-});
-
-const gl=document.createElement("div");
-gl.className="glow";
-document.body.append(gl);
-addEventListener("pointermove",e=>{
-  gl.style.setProperty("--mx",e.clientX+"px");
-  gl.style.setProperty("--my",e.clientY+"px");
-},{passive:true});
-
-load();
-</script>
+  <script src="js/visualizer.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

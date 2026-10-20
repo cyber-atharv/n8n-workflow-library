@@ -40,10 +40,39 @@ async function loadApplicationData() {
     applyBranding();
     populateFilterDropdowns();
     updateTabCounts();
+    applyUrlParams();
     applyFilters();
   } catch (err) {
     console.error('Failed to load workflow data:', err);
     showToast('Notice: Running in preview mode or data loading error.');
+  }
+}
+
+function applyUrlParams() {
+  const params = new URLSearchParams(window.location.search);
+  const cat = params.get('cat') || params.get('c') || params.get('category');
+  const q = params.get('q') || params.get('search');
+  const integ = params.get('integration') || params.get('i');
+  const trig = params.get('trigger') || params.get('t');
+
+  if (cat) {
+    const catSelect = document.getElementById('categoryFilter');
+    const catLower = cat.toLowerCase();
+    for (const opt of catSelect.options) {
+      if (opt.value.toLowerCase() === catLower || opt.textContent.toLowerCase().includes(catLower)) {
+        catSelect.value = opt.value;
+        break;
+      }
+    }
+  }
+  if (q) {
+    document.getElementById('searchInput').value = q;
+  }
+  if (integ) {
+    document.getElementById('integrationFilter').value = integ;
+  }
+  if (trig) {
+    document.getElementById('triggerFilter').value = trig;
   }
 }
 

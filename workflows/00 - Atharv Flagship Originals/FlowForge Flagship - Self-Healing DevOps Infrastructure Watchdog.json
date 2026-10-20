@@ -1,0 +1,154 @@
+{
+  "name": "FlowForge Flagship: Self-Healing DevOps Infrastructure Watchdog",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 5
+            }
+          ]
+        }
+      },
+      "id": "1",
+      "name": "Check Interval",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        180,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.internal.service/healthz",
+        "options": {
+          "timeout": 5000
+        }
+      },
+      "id": "2",
+      "name": "Ping Microservice",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        380,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $response.statusCode }}",
+              "operation": "equal",
+              "value2": 200
+            }
+          ]
+        }
+      },
+      "id": "3",
+      "name": "Is Service Healthy?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        580,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://kubernetes.internal.cluster/restart-deployment",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "service",
+              "value": "api-gateway"
+            }
+          ]
+        }
+      },
+      "id": "4",
+      "name": "Trigger Auto-Heal Pod",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "channel": "#devops-incidents",
+        "text": "=:warning: *Auto-Heal Activated*: Microservice health check failed (Status: {{ $('Ping Microservice').item.json.statusCode }}). Sent automated restart trigger to Kubernetes cluster."
+      },
+      "id": "5",
+      "name": "Alert Discord DevOps",
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        800,
+        360
+      ],
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "flowforge_discord_cred",
+          "name": "DevOps Alerts Webhook"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Check Interval": {
+      "main": [
+        [
+          {
+            "node": "Ping Microservice",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ping Microservice": {
+      "main": [
+        [
+          {
+            "node": "Is Service Healthy?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Service Healthy?": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Trigger Auto-Heal Pod",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Alert Discord DevOps",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "description": "FlowForge Original: High-availability automated watchdog that polls microservice endpoints every 5 minutes, verifies health responses, dispatches self-healing restart triggers if degraded, and streams incident telemetries to Discord.",
+  "meta": {
+    "flowforge": {
+      "is_original": true,
+      "author": "FlowForge Architecture Team",
+      "category": "devops-infrastructure",
+      "license": "MIT"
+    }
+  }
+}

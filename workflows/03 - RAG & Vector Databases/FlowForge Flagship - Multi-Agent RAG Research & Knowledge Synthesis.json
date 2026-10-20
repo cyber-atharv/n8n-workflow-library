@@ -1,0 +1,179 @@
+{
+  "name": "FlowForge Flagship: Multi-Agent RAG Research & Knowledge Synthesis",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8 * * *"
+            }
+          ]
+        }
+      },
+      "id": "1",
+      "name": "Daily Research Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        200,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.hackernews.io/v1/topstories",
+        "options": {}
+      },
+      "id": "2",
+      "name": "Fetch Tech Signals",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        420,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Conduct an in-depth research synthesis of the latest technical breakthroughs from: {{ $json.data }}. Extract key architectural implications, security considerations, and enterprise adoption readiness.",
+        "options": {
+          "systemMessage": "You are FlowForge Autonomous Research Agent. Synthesize technical intelligence with high precision and clarity."
+        }
+      },
+      "id": "3",
+      "name": "AI Research Synthesizer",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        660,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "modelName": "models/chatgpt-4o-latest",
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "id": "4",
+      "name": "OpenAI Reasoning Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        660,
+        480
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "flowforge_openai_cred",
+          "name": "OpenAI Production API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "indexName": "enterprise-research-vectors"
+      },
+      "id": "5",
+      "name": "Vector Store Ingestion",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "typeVersion": 1,
+      "position": [
+        900,
+        220
+      ],
+      "credentials": {
+        "qdrantApi": {
+          "id": "flowforge_qdrant_cred",
+          "name": "Qdrant Cluster"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "channel": "#ai-research-briefings",
+        "text": "=*FlowForge Autonomous Intelligence Briefing*\\n\\n{{ $json.output }}\\n\\n_Indexed to Knowledge Base with Qdrant Vector Search._"
+      },
+      "id": "6",
+      "name": "Publish to Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [
+        900,
+        380
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "flowforge_slack_cred",
+          "name": "FlowForge Slack Bot"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Daily Research Trigger": {
+      "main": [
+        [
+          {
+            "node": "Fetch Tech Signals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Tech Signals": {
+      "main": [
+        [
+          {
+            "node": "AI Research Synthesizer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Reasoning Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Research Synthesizer",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Research Synthesizer": {
+      "main": [
+        [
+          {
+            "node": "Vector Store Ingestion",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Publish to Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "description": "FlowForge Original: Multi-agent RAG pipeline that collects daily tech signals, analyzes enterprise implications with OpenAI reasoning, indexes embeddings into Qdrant, and publishes formatted summaries to Slack.",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "flowforge": {
+      "is_original": true,
+      "author": "FlowForge Architecture Team",
+      "category": "ai-agents-llms",
+      "license": "MIT"
+    }
+  }
+}

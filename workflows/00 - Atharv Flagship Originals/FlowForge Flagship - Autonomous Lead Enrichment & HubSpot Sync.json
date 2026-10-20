@@ -1,0 +1,145 @@
+{
+  "name": "FlowForge Flagship: Autonomous Lead Enrichment & HubSpot Sync",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "lead-ingest",
+        "options": {}
+      },
+      "id": "1",
+      "name": "Incoming Lead Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        180,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "domain": "={{ $json.body.email.split('@')[1] }}"
+      },
+      "id": "2",
+      "name": "Hunter Domain Search",
+      "type": "n8n-nodes-base.hunter",
+      "typeVersion": 1,
+      "position": [
+        400,
+        260
+      ],
+      "credentials": {
+        "hunterApi": {
+          "id": "flowforge_hunter_cred",
+          "name": "Hunter.io Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Score this B2B lead (0-100) and evaluate ICP fit based on company size, industry, and email domain: {{ JSON.stringify($json) }}. Output JSON with score, reasoning, and suggested outreach tier."
+      },
+      "id": "3",
+      "name": "OpenAI Lead Scorer",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        640,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "email": "={{ $('Incoming Lead Webhook').item.json.body.email }}",
+        "additionalFields": {
+          "leadScore": "={{ $json.output.score }}",
+          "notes": "={{ $json.output.reasoning }}"
+        }
+      },
+      "id": "4",
+      "name": "Upsert HubSpot Contact",
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 1.2,
+      "position": [
+        880,
+        200
+      ],
+      "credentials": {
+        "hubspotApi": {
+          "id": "flowforge_hubspot_cred",
+          "name": "HubSpot Production"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "channel": "#sales-hot-leads",
+        "text": "=:fire: *High ICP Lead Qualified (Score: {{ $json.output.score }}/100)*\\n*Contact:* {{ $('Incoming Lead Webhook').item.json.body.email }}\\n*Reasoning:* {{ $json.output.reasoning }}"
+      },
+      "id": "5",
+      "name": "Notify Sales Channel",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [
+        880,
+        360
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "flowforge_slack_cred",
+          "name": "FlowForge Slack Bot"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Incoming Lead Webhook": {
+      "main": [
+        [
+          {
+            "node": "Hunter Domain Search",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hunter Domain Search": {
+      "main": [
+        [
+          {
+            "node": "OpenAI Lead Scorer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Lead Scorer": {
+      "main": [
+        [
+          {
+            "node": "Upsert HubSpot Contact",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Notify Sales Channel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "description": "FlowForge Original: Production webhook receiver that ingests inbound leads, enriches domain intelligence via Hunter, executes AI scoring & ICP fit analysis, upserts CRM record in HubSpot, and alerts sales teams on Slack.",
+  "meta": {
+    "flowforge": {
+      "is_original": true,
+      "author": "FlowForge Architecture Team",
+      "category": "lead-generation-enrichment",
+      "license": "MIT"
+    }
+  }
+}

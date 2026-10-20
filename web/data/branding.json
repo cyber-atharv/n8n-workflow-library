@@ -1,0 +1,24 @@
+{
+  "brand": {
+    "name": "Atharv Automation Studio",
+    "tagline": "The Enterprise-Grade n8n Workflow Library & Automation Engine",
+    "description": "A curated, validated, and security-audited repository of 1,000+ production-ready n8n workflows across 30 enterprise automation categories.",
+    "project_name": "n8n-workflow-library",
+    "github_username": "cyber-atharv",
+    "github_repo_url": "https://github.com/cyber-atharv/n8n-workflow-library",
+    "maintainer": "Atharv Hogade (cyber-atharv)",
+    "maintainer_email": "atharvhogade12@gmail.com",
+    "website": "https://github.com/cyber-atharv/n8n-workflow-library",
+    "license_for_tooling": "MIT",
+    "accent_color": "#ff6d5a",
+    "theme": "dark"
+  },
+  "sections": {
+    "original_label": "Atharv Flagship Originals",
+    "original_description": "Custom high-tier automation architectures designed and built by Atharv Hogade.",
+    "modified_label": "Atharv Enhanced & Hardened",
+    "modified_description": "Curated community workflows substantially upgraded with security hardening, modern node schemas, and enhanced error handling.",
+    "community_label": "Curated Open Source Library",
+    "community_description": "Community workflows preserved with full original attribution, upstream source links, and verified licenses."
+  }
+}

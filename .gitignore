@@ -1,0 +1,26 @@
+# Git & OS artifacts
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+env/
+venv/
+.venv/
+
+# Node artifacts
+node_modules/
+npm-debug.log*
+
+# Raw source clones (can be re-cloned anytime via scripts/clone_repositories.py)
+# Keep library/ and reports tracked, sources/ optional
+sources/
+
+# Local secrets or overrides
+.env
+*.local.json

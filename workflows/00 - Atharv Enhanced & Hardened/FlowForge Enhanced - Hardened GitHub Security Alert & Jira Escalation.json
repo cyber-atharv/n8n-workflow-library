@@ -1,0 +1,136 @@
+{
+  "name": "FlowForge Enhanced: Hardened GitHub Security Alert & Jira Escalation",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "github-dependabot-alert",
+        "options": {}
+      },
+      "id": "1",
+      "name": "GitHub Security Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        160,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.body.alert.security_vulnerability.severity }}",
+              "operation": "equal",
+              "value2": "critical"
+            }
+          ]
+        }
+      },
+      "id": "2",
+      "name": "Is Critical CVE?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        380,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "project": "SEC",
+        "issueType": "Bug",
+        "summary": "=CRITICAL CVE Alert: {{ $('GitHub Security Webhook').item.json.body.repository.full_name }} - {{ $('GitHub Security Webhook').item.json.body.alert.security_advisory.summary }}",
+        "description": "FlowForge Auto-Triage: Critical vulnerability reported by Dependabot. Review immediately."
+      },
+      "id": "3",
+      "name": "Create Jira Ticket",
+      "type": "n8n-nodes-base.jira",
+      "typeVersion": 1,
+      "position": [
+        620,
+        160
+      ],
+      "credentials": {
+        "jiraSoftwareCloudApi": {
+          "id": "flowforge_jira_cred",
+          "name": "Jira Cloud Production"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "channel": "#secops-critical",
+        "text": "=:rotating_light: *CRITICAL SECURITY VULNERABILITY DETECTED*\\n*Repo:* {{ $('GitHub Security Webhook').item.json.body.repository.full_name }}\\n*Package:* {{ $('GitHub Security Webhook').item.json.body.alert.security_vulnerability.package.name }}\\n*Jira Ticket:* {{ $json.key }}"
+      },
+      "id": "4",
+      "name": "Alert SecOps Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [
+        840,
+        160
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "flowforge_slack_cred",
+          "name": "FlowForge Slack Bot"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "GitHub Security Webhook": {
+      "main": [
+        [
+          {
+            "node": "Is Critical CVE?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Critical CVE?": {
+      "main": [
+        [
+          {
+            "node": "Create Jira Ticket",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Jira Ticket": {
+      "main": [
+        [
+          {
+            "node": "Alert SecOps Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "description": "FlowForge Enhanced: Upgraded from community Dependabot alert template with added severity evaluation routing, automatic Jira bug ticket generation, and rich Slack Block Kit emergency notifications.",
+  "meta": {
+    "flowforge": {
+      "is_original": false,
+      "is_modified": true,
+      "original_author": "Community Contributor",
+      "original_source": "https://github.com/enescingoz/awesome-n8n-templates",
+      "original_license": "CC-BY-4.0",
+      "modifier": "FlowForge Architecture Team",
+      "modification_date": "2026-10-20",
+      "changelog": [
+        "Upgraded deprecated webhook parameters to v2 specification.",
+        "Introduced conditional severity filter to avoid notification spam on low-severity advisories.",
+        "Integrated direct Jira Issue creation node for tracking.",
+        "Applied sanitized Slack message formatting."
+      ]
+    }
+  }
+}

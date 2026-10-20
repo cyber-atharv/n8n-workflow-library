@@ -1,5 +1,5 @@
 {
-  "name": "FlowForge Flagship: Autonomous Lead Enrichment & HubSpot Sync",
+  "name": "Atharv Flagship: Autonomous Lead Enrichment & HubSpot Sync",
   "nodes": [
     {
       "parameters": {
@@ -88,7 +88,7 @@
       "credentials": {
         "slackApi": {
           "id": "flowforge_slack_cred",
-          "name": "FlowForge Slack Bot"
+          "name": "Atharv Slack Bot"
         }
       }
     }
@@ -133,11 +133,11 @@
       ]
     }
   },
-  "description": "FlowForge Original: Production webhook receiver that ingests inbound leads, enriches domain intelligence via Hunter, executes AI scoring & ICP fit analysis, upserts CRM record in HubSpot, and alerts sales teams on Slack.",
+  "description": "Atharv Original: Production webhook receiver that ingests inbound leads, enriches domain intelligence via Hunter, executes AI scoring & ICP fit analysis, upserts CRM record in HubSpot, and alerts sales teams on Slack.",
   "meta": {
     "flowforge": {
       "is_original": true,
-      "author": "FlowForge Architecture Team",
+      "author": "Atharv Architecture Team",
       "category": "lead-generation-enrichment",
       "license": "MIT"
     }

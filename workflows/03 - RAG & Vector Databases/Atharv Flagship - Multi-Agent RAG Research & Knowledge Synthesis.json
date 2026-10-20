@@ -1,5 +1,5 @@
 {
-  "name": "FlowForge Flagship: Multi-Agent RAG Research & Knowledge Synthesis",
+  "name": "Atharv Flagship: Multi-Agent RAG Research & Knowledge Synthesis",
   "nodes": [
     {
       "parameters": {
@@ -40,7 +40,7 @@
         "promptType": "define",
         "text": "=Conduct an in-depth research synthesis of the latest technical breakthroughs from: {{ $json.data }}. Extract key architectural implications, security considerations, and enterprise adoption readiness.",
         "options": {
-          "systemMessage": "You are FlowForge Autonomous Research Agent. Synthesize technical intelligence with high precision and clarity."
+          "systemMessage": "You are Atharv Autonomous Research Agent. Synthesize technical intelligence with high precision and clarity."
         }
       },
       "id": "3",
@@ -97,7 +97,7 @@
     {
       "parameters": {
         "channel": "#ai-research-briefings",
-        "text": "=*FlowForge Autonomous Intelligence Briefing*\\n\\n{{ $json.output }}\\n\\n_Indexed to Knowledge Base with Qdrant Vector Search._"
+        "text": "=*Atharv Autonomous Intelligence Briefing*\\n\\n{{ $json.output }}\\n\\n_Indexed to Knowledge Base with Qdrant Vector Search._"
       },
       "id": "6",
       "name": "Publish to Slack",
@@ -110,7 +110,7 @@
       "credentials": {
         "slackApi": {
           "id": "flowforge_slack_cred",
-          "name": "FlowForge Slack Bot"
+          "name": "Atharv Slack Bot"
         }
       }
     }
@@ -166,12 +166,12 @@
       ]
     }
   },
-  "description": "FlowForge Original: Multi-agent RAG pipeline that collects daily tech signals, analyzes enterprise implications with OpenAI reasoning, indexes embeddings into Qdrant, and publishes formatted summaries to Slack.",
+  "description": "Atharv Original: Multi-agent RAG pipeline that collects daily tech signals, analyzes enterprise implications with OpenAI reasoning, indexes embeddings into Qdrant, and publishes formatted summaries to Slack.",
   "meta": {
     "templateCredsSetupCompleted": true,
     "flowforge": {
       "is_original": true,
-      "author": "FlowForge Architecture Team",
+      "author": "Atharv Architecture Team",
       "category": "ai-agents-llms",
       "license": "MIT"
     }

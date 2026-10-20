@@ -1,5 +1,5 @@
 {
-  "name": "FlowForge Flagship: Self-Healing DevOps Infrastructure Watchdog",
+  "name": "Atharv Flagship: Self-Healing DevOps Infrastructure Watchdog",
   "nodes": [
     {
       "parameters": {
@@ -142,11 +142,11 @@
       ]
     }
   },
-  "description": "FlowForge Original: High-availability automated watchdog that polls microservice endpoints every 5 minutes, verifies health responses, dispatches self-healing restart triggers if degraded, and streams incident telemetries to Discord.",
+  "description": "Atharv Original: High-availability automated watchdog that polls microservice endpoints every 5 minutes, verifies health responses, dispatches self-healing restart triggers if degraded, and streams incident telemetries to Discord.",
   "meta": {
     "flowforge": {
       "is_original": true,
-      "author": "FlowForge Architecture Team",
+      "author": "Atharv Architecture Team",
       "category": "devops-infrastructure",
       "license": "MIT"
     }

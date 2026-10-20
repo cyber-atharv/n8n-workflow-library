@@ -1,6 +1,0 @@
-repo_name,license_name,spdx_id,license_file_path,copyright_holder,allows_commercial,requires_attribution,requires_sharealike,compliance_notes,workflows_count
-aboalrejalai-n8n-workflows,MIT,MIT,sources\aboalrejalai-n8n-workflows\LICENSE,Mohammed Nadhir Abo Alrejal,True,True,False,Permissive. Keep original copyright notice and MIT permission notice intact.,6460
-awesome-n8n-templates,MIT,MIT,sources\awesome-n8n-templates\LICENSE,useWeld,True,True,False,Permissive. Keep original copyright notice and MIT permission notice intact.,8698
-danitilahun-n8n-workflow-templates,Unspecified / Missing,Unspecified / Missing,None,Unknown,False,True,False,No license file found in repository root. Assume all rights reserved under default copyright until clarified.,2053
-enescingoz-awesome-n8n-templates,CC-BY-4.0,CC-BY-4.0,sources\enescingoz-awesome-n8n-templates\LICENSE,Enes Cingoz,True,True,False,Attribution required. Provide appropriate credit and link to the license.,369
-n8n-workflow-all-templates,Apache-2.0,Apache-2.0,sources\n8n-workflow-all-templates\LICENSE,owner or entity authorized by,True,True,False,"Permissive. Retain copyright, notice files, and clearly document any modifications.",12191

@@ -114,11 +114,11 @@ Handcrafted and security-hardened enterprise workflows built from scratch:
 
 | Workflow Architecture | Category | Nodes | Description | Direct Link |
 | :--- | :--- | :---: | :--- | :---: |
-| **[Multi-Agent RAG Research & Knowledge Synthesis](<workflows/00 - Atharv Flagship Originals/FlowForge Flagship - Multi-Agent RAG Research & Knowledge Synthesis.json>)** | AI & Research | 6 | Autonomous signal collector, GPT-4o reasoning agent, Qdrant vector search & Slack digest. | [View JSON](<workflows/00 - Atharv Flagship Originals/FlowForge Flagship - Multi-Agent RAG Research & Knowledge Synthesis.json>) |
-| **[Autonomous Lead Enrichment & HubSpot Sync](<workflows/00 - Atharv Flagship Originals/FlowForge Flagship - Autonomous Lead Enrichment & HubSpot Sync.json>)** | Lead Gen & CRM | 5 | Inbound lead webhook, Hunter domain intelligence, AI ICP fit scoring & HubSpot CRM upsert. | [View JSON](<workflows/00 - Atharv Flagship Originals/FlowForge Flagship - Autonomous Lead Enrichment & HubSpot Sync.json>) |
-| **[Self-Healing DevOps Infrastructure Watchdog](<workflows/00 - Atharv Flagship Originals/FlowForge Flagship - Self-Healing DevOps Infrastructure Watchdog.json>)** | DevOps & Sentry | 5 | Polling sentry, endpoint health evaluation, automated Kubernetes pod restart webhook & Discord alert. | [View JSON](<workflows/00 - Atharv Flagship Originals/FlowForge Flagship - Self-Healing DevOps Infrastructure Watchdog.json>) |
-| **[Shopify Abandoned Cart Recovery Engine](<workflows/00 - Atharv Enhanced & Hardened/FlowForge Enhanced - Shopify Abandoned Cart Recovery Engine.json>)** | E-Commerce | 4 | Hardened with cryptographic HMAC SHA-256 header verification, OpenAI personalized recovery copy. | [View JSON](<workflows/00 - Atharv Enhanced & Hardened/FlowForge Enhanced - Shopify Abandoned Cart Recovery Engine.json>) |
-| **[Hardened GitHub Security Alert & Jira Escalation](<workflows/00 - Atharv Enhanced & Hardened/FlowForge Enhanced - Hardened GitHub Security Alert & Jira Escalation.json>)** | Security & DevOps | 4 | Automated Dependabot CVE triage, severity routing filter, Jira bug ticket creation & SecOps alert. | [View JSON](<workflows/00 - Atharv Enhanced & Hardened/FlowForge Enhanced - Hardened GitHub Security Alert & Jira Escalation.json>) |
+| **[Multi-Agent RAG Research & Knowledge Synthesis](<workflows/00 - Atharv Flagship Originals/Atharv Flagship - Multi-Agent RAG Research & Knowledge Synthesis.json>)** | AI & Research | 6 | Autonomous signal collector, GPT-4o reasoning agent, Qdrant vector search & Slack digest. | [View JSON](<workflows/00 - Atharv Flagship Originals/Atharv Flagship - Multi-Agent RAG Research & Knowledge Synthesis.json>) |
+| **[Autonomous Lead Enrichment & HubSpot Sync](<workflows/00 - Atharv Flagship Originals/Atharv Flagship - Autonomous Lead Enrichment & HubSpot Sync.json>)** | Lead Gen & CRM | 5 | Inbound lead webhook, Hunter domain intelligence, AI ICP fit scoring & HubSpot CRM upsert. | [View JSON](<workflows/00 - Atharv Flagship Originals/Atharv Flagship - Autonomous Lead Enrichment & HubSpot Sync.json>) |
+| **[Self-Healing DevOps Infrastructure Watchdog](<workflows/00 - Atharv Flagship Originals/Atharv Flagship - Self-Healing DevOps Infrastructure Watchdog.json>)** | DevOps & Sentry | 5 | Polling sentry, endpoint health evaluation, automated Kubernetes pod restart webhook & Discord alert. | [View JSON](<workflows/00 - Atharv Flagship Originals/Atharv Flagship - Self-Healing DevOps Infrastructure Watchdog.json>) |
+| **[Shopify Abandoned Cart Recovery Engine](<workflows/00 - Atharv Enhanced & Hardened/Atharv Enhanced - Shopify Abandoned Cart Recovery Engine.json>)** | E-Commerce | 4 | Hardened with cryptographic HMAC SHA-256 header verification, OpenAI personalized recovery copy. | [View JSON](<workflows/00 - Atharv Enhanced & Hardened/Atharv Enhanced - Shopify Abandoned Cart Recovery Engine.json>) |
+| **[Hardened GitHub Security Alert & Jira Escalation](<workflows/00 - Atharv Enhanced & Hardened/Atharv Enhanced - Hardened GitHub Security Alert & Jira Escalation.json>)** | Security & DevOps | 4 | Automated Dependabot CVE triage, severity routing filter, Jira bug ticket creation & SecOps alert. | [View JSON](<workflows/00 - Atharv Enhanced & Hardened/Atharv Enhanced - Hardened GitHub Security Alert & Jira Escalation.json>) |
 
 ---
 
@@ -171,11 +171,10 @@ Open **`http://localhost:8080/web/`** in your browser.
 
 ---
 
-## 🛡️ License & Attribution
+## 🛡️ License
 
-- Tooling, visualizer & Atharv originals: [MIT License](LICENSE) © 2026 Atharv Hogade.
-- Curated workflows: Upstream open-source licenses strictly preserved (MIT, Apache-2.0, CC-BY-4.0).
-- Detailed provenance and audit reports: [ATTRIBUTION.md](ATTRIBUTION.md) | [SOURCES.md](SOURCES.md) | [license_audit.csv](license_audit.csv)
+Created, designed, and curated by [Atharv Hogade](https://github.com/cyber-atharv).  
+Licensed under the [MIT License](LICENSE).
 """
 
     README_MD.write_text(readme_content, encoding="utf-8")

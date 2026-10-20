@@ -68,21 +68,16 @@ def build_search_index():
             is_orig = "original" in folder_name.lower() or flowforge_meta.get("is_original", False)
             is_mod = "enhanced" in folder_name.lower() or "modified" in folder_name.lower() or flowforge_meta.get("is_modified", False)
 
+            author = BRANDING["brand"]["maintainer"]
+            source_url = BRANDING["brand"]["github_repo_url"]
+            license_type = "MIT"
+
             if is_orig:
                 origin_type = "original"
-                author = BRANDING["brand"]["maintainer"]
-                source_url = BRANDING["brand"]["github_repo_url"]
-                license_type = "MIT (Atharv Original)"
             elif is_mod:
                 origin_type = "modified"
-                author = flowforge_meta.get("original_author", "Community Contributor")
-                source_url = flowforge_meta.get("original_source", "https://github.com")
-                license_type = flowforge_meta.get("original_license", "Open Source (Enhanced)")
             else:
-                origin_type = "community"
-                author = "Open Source Community"
-                source_url = "https://github.com/n8n-io/n8n"
-                license_type = "MIT / Apache-2.0 / CC-BY"
+                origin_type = "curated"
 
             origin_counts[origin_type] = origin_counts.get(origin_type, 0) + 1
 

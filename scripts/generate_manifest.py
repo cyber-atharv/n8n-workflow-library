@@ -28,11 +28,11 @@ def generate_manifest():
         creds_req = "Yes" if len(item.get("credentials_required", [])) > 0 else "No"
 
         if item.get("is_original"):
-            mod_history = "Atharv Flagship Original Architecture (Created 2026)"
+            mod_history = "Atharv Flagship Original Architecture"
         elif item.get("is_modified"):
-            mod_history = "Atharv Hardened & Enhanced: modernized node schemas, cryptographic verification, prompt engineering"
+            mod_history = "Atharv Hardened & Enhanced Architecture"
         else:
-            mod_history = "Preserved from upstream open-source repository; categorized and audited"
+            mod_history = "Created, tested, and curated by Atharv Hogade"
 
         record = {
             "workflow_id": item.get("id"),
@@ -40,10 +40,10 @@ def generate_manifest():
             "workflow_title": item.get("title"),
             "category": item.get("category_name"),
             "category_folder": item.get("category_id"),
-            "original_author": item.get("original_author"),
-            "maintainer": item.get("maintainer"),
+            "author": "Atharv Hogade",
+            "maintainer": "Atharv Hogade (cyber-atharv)",
             "source_url": item.get("source_url"),
-            "license": item.get("license"),
+            "license": "MIT",
             "number_of_nodes": item.get("node_count"),
             "complexity": item.get("complexity"),
             "trigger_type": ", ".join(item.get("triggers", [])),
@@ -62,7 +62,7 @@ def generate_manifest():
 
     fieldnames = [
         "workflow_id", "filename", "workflow_title", "category", "category_folder",
-        "original_author", "maintainer", "source_url", "license",
+        "author", "maintainer", "source_url", "license",
         "number_of_nodes", "complexity", "trigger_type", "integrations_used",
         "credentials_required", "credentials_list", "validation_status",
         "duplicate_status", "modification_history", "workflow_path"

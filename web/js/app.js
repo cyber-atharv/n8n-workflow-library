@@ -41,7 +41,6 @@ async function loadApplicationData() {
     populateFilterDropdowns();
     updateTabCounts();
     applyFilters();
-    populateLicenseTable();
   } catch (err) {
     console.error('Failed to load workflow data:', err);
     showToast('Notice: Running in preview mode or data loading error.');
@@ -207,18 +206,14 @@ function switchMainTab(tabName) {
   currentTab = tabName;
   const catalogView = document.getElementById('catalogView');
   const filtersSection = document.getElementById('filtersSection');
-  const licenseView = document.getElementById('licenseAuditView');
   const securityView = document.getElementById('securityAuditView');
 
   // Hide all views first
   catalogView.style.display = 'none';
   filtersSection.style.display = 'none';
-  licenseView.style.display = 'none';
   securityView.style.display = 'none';
 
-  if (tabName === 'license-audit') {
-    licenseView.style.display = 'block';
-  } else if (tabName === 'security-audit') {
+  if (tabName === 'security-audit') {
     securityView.style.display = 'block';
   } else {
     catalogView.style.display = 'block';
@@ -552,30 +547,6 @@ function downloadActiveWorkflowJson() {
   showToast(`Downloaded ${a.download}`);
 }
 
-function populateLicenseTable() {
-  const tbody = document.getElementById('licenseTableBody');
-  if (!tbody || !statsData.licenses) return;
-
-  const repoAudit = [
-    { repo: "ScraperNode/awesome-n8n-templates", license: "MIT", count: 8698, comm: "Yes", attr: "Yes", sa: "No", status: "Verified Permissive" },
-    { repo: "zengfr/n8n-workflow-all-templates", license: "Apache-2.0", count: 12191, comm: "Yes", attr: "Yes", sa: "No", status: "Verified Permissive" },
-    { repo: "aboalrejalai/n8n-workflows", license: "MIT", count: 6460, comm: "Yes", attr: "Yes", sa: "No", status: "Verified Permissive" },
-    { repo: "enescingoz/awesome-n8n-templates", license: "CC-BY-4.0", count: 369, comm: "Yes", attr: "Yes", sa: "No", status: "Verified Attribution" },
-    { repo: "Danitilahun/n8n-workflow-templates", license: "Unspecified (Audited)", count: 2053, comm: "Review", attr: "Yes", sa: "No", status: "Preserved with Notice" }
-  ];
-
-  tbody.innerHTML = repoAudit.map(r => `
-    <tr>
-      <td><strong>${r.repo}</strong></td>
-      <td><span class="integ-chip">${r.license}</span></td>
-      <td>${r.count.toLocaleString()}</td>
-      <td>${r.comm}</td>
-      <td>${r.attr}</td>
-      <td>${r.sa}</td>
-      <td><span class="badge badge-accent">${r.status}</span></td>
-    </tr>
-  `).join('');
-}
 
 function showToast(msg) {
   const container = document.getElementById('toastContainer');

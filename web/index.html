@@ -84,7 +84,7 @@
         <div class="metric-divider"></div>
         <div class="metric-item">
           <span class="metric-number" id="metricOriginals">5</span>
-          <span class="metric-label">FlowForge Originals</span>
+          <span class="metric-label">Atharv Originals</span>
         </div>
       </div>
     </div>
@@ -102,7 +102,7 @@
         </button>
         <button class="nav-tab" data-tab="originals" id="tabOriginals">
           <span class="tab-star">★</span>
-          <span>FlowForge Originals</span>
+          <span>Atharv Originals</span>
           <span class="tab-count" id="countOriginals">0</span>
         </button>
         <button class="nav-tab" data-tab="modified" id="tabModified">
@@ -112,9 +112,6 @@
         <button class="nav-tab" data-tab="favorites" id="tabFavorites">
           <span>Favorites</span>
           <span class="tab-count" id="countFavorites">0</span>
-        </button>
-        <button class="nav-tab" data-tab="license-audit" id="tabLicenseAudit">
-          <span>License Audit</span>
         </button>
         <button class="nav-tab" data-tab="security-audit" id="tabSecurityAudit">
           <span>Security & Health</span>
@@ -225,37 +222,7 @@
       </div>
     </section>
 
-    <!-- License Audit Tab View (Hidden by default) -->
-    <section class="audit-view" id="licenseAuditView" style="display: none;">
-      <div class="view-header">
-        <div>
-          <h3 class="view-title">Open Source License Compliance Matrix</h3>
-          <p class="view-subtitle">Full transparency and provenance verification for all source repositories and workflows.</p>
-        </div>
-      </div>
-      <div class="table-card">
-        <div class="table-responsive">
-          <table class="data-table" id="licenseTable">
-            <thead>
-              <tr>
-                <th>Repository</th>
-                <th>Detected License</th>
-                <th>Workflows</th>
-                <th>Commercial Use</th>
-                <th>Attribution Required</th>
-                <th>Share-Alike</th>
-                <th>Compliance Status</th>
-              </tr>
-            </thead>
-            <tbody id="licenseTableBody">
-              <!-- Dynamically populated -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- Security & Health Tab View (Hidden by default) -->
+      <!-- Security & Health Tab View (Hidden by default) -->
     <section class="audit-view" id="securityAuditView" style="display: none;">
       <div class="view-header">
         <div>
@@ -436,12 +403,12 @@
   <footer class="app-footer">
     <div class="footer-container">
       <div class="footer-brand">
-        <span class="footer-title" id="footerBrandName">FlowForge Studio</span>
-        <span class="footer-text">Production Automation Library. Preserving open source attribution and licensing integrity.</span>
+        <span class="footer-title" id="footerBrandName">Atharv Automation Studio</span>
+        <span class="footer-text">Created & curated by Atharv Hogade (@cyber-atharv). Production automation library.</span>
       </div>
       <div class="footer-links">
-        <a href="#tabLicenseAudit" onclick="switchMainTab('license-audit')">License Matrix</a>
         <a href="#tabSecurityAudit" onclick="switchMainTab('security-audit')">Security Audit</a>
+        <a href="https://github.com/cyber-atharv/n8n-workflow-library" target="_blank" rel="noopener">GitHub Repository</a>
         <a href="https://n8n.io" target="_blank" rel="noopener">n8n Documentation</a>
       </div>
     </div>

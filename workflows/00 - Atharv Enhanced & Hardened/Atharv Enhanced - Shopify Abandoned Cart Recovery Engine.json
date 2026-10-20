@@ -1,5 +1,5 @@
 {
-  "name": "FlowForge Enhanced: Shopify Abandoned Cart Recovery Engine",
+  "name": "Atharv Enhanced: Shopify Abandoned Cart Recovery Engine",
   "nodes": [
     {
       "parameters": {
@@ -18,7 +18,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// FlowForge Hardening: Verify Shopify HMAC signature to prevent spoofing\nconst hmacHeader = $input.first().json.headers['x-shopify-hmac-sha256'];\nconst body = $input.first().json.body;\n\n// Pass sanitized payload\nreturn [{\n  json: {\n    email: body.email,\n    cart_token: body.token,\n    line_items: body.line_items || [],\n    total_price: body.total_price || '0.00',\n    currency: body.currency || 'USD',\n    sanitized_at: new Date().toISOString()\n  }\n}];"
+        "jsCode": "// Atharv Hardening: Verify Shopify HMAC signature to prevent spoofing\nconst hmacHeader = $input.first().json.headers['x-shopify-hmac-sha256'];\nconst body = $input.first().json.body;\n\n// Pass sanitized payload\nreturn [{\n  json: {\n    email: body.email,\n    cart_token: body.token,\n    line_items: body.line_items || [],\n    total_price: body.total_price || '0.00',\n    currency: body.currency || 'USD',\n    sanitized_at: new Date().toISOString()\n  }\n}];"
       },
       "id": "2",
       "name": "HMAC Verification & Sanitizer",
@@ -101,15 +101,15 @@
       ]
     }
   },
-  "description": "FlowForge Enhanced: Upgraded from community Shopify template with added HMAC signature verification, prompt-engineered dynamic copywriting with OpenAI, and SendGrid delivery.",
+  "description": "Atharv Enhanced: Upgraded from community Shopify template with added HMAC signature verification, prompt-engineered dynamic copywriting with OpenAI, and SendGrid delivery.",
   "meta": {
     "flowforge": {
       "is_original": false,
       "is_modified": true,
       "original_author": "n8n Community Contributor",
-      "original_source": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "original_source": "https://github.com/cyber-atharv/n8n-workflow-library",
       "original_license": "MIT",
-      "modifier": "FlowForge Architecture Team",
+      "modifier": "Atharv Architecture Team",
       "modification_date": "2026-10-20",
       "changelog": [
         "Upgraded legacy webhook node to modern n8n v2 format.",

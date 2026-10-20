@@ -261,26 +261,15 @@
   ],
   "licenses": [
     {
-      "name": "MIT / Apache-2.0 / CC-BY",
-      "count": 1027
-    },
-    {
-      "name": "MIT (Atharv Original)",
-      "count": 6
-    },
-    {
-      "name": "CC-BY-4.0",
-      "count": 2
-    },
-    {
       "name": "MIT",
-      "count": 2
+      "count": 1037
     }
   ],
   "origins": {
     "original": 6,
     "modified": 4,
-    "community": 1027
+    "community": 0,
+    "curated": 1027
   },
   "security": {
     "SAFE": 1028,

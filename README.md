@@ -26,11 +26,11 @@ Handcrafted and security-hardened enterprise workflows built from scratch:
 
 | Workflow Architecture | Category | Nodes | Description | Direct Link |
 | :--- | :--- | :---: | :--- | :---: |
-| **[Multi-Agent RAG Research & Knowledge Synthesis](<workflows/00 - Atharv Flagship Originals/FlowForge Flagship - Multi-Agent RAG Research & Knowledge Synthesis.json>)** | AI & Research | 6 | Autonomous signal collector, GPT-4o reasoning agent, Qdrant vector search & Slack digest. | [View JSON](<workflows/00 - Atharv Flagship Originals/FlowForge Flagship - Multi-Agent RAG Research & Knowledge Synthesis.json>) |
-| **[Autonomous Lead Enrichment & HubSpot Sync](<workflows/00 - Atharv Flagship Originals/FlowForge Flagship - Autonomous Lead Enrichment & HubSpot Sync.json>)** | Lead Gen & CRM | 5 | Inbound lead webhook, Hunter domain intelligence, AI ICP fit scoring & HubSpot CRM upsert. | [View JSON](<workflows/00 - Atharv Flagship Originals/FlowForge Flagship - Autonomous Lead Enrichment & HubSpot Sync.json>) |
-| **[Self-Healing DevOps Infrastructure Watchdog](<workflows/00 - Atharv Flagship Originals/FlowForge Flagship - Self-Healing DevOps Infrastructure Watchdog.json>)** | DevOps & Sentry | 5 | Polling sentry, endpoint health evaluation, automated Kubernetes pod restart webhook & Discord alert. | [View JSON](<workflows/00 - Atharv Flagship Originals/FlowForge Flagship - Self-Healing DevOps Infrastructure Watchdog.json>) |
-| **[Shopify Abandoned Cart Recovery Engine](<workflows/00 - Atharv Enhanced & Hardened/FlowForge Enhanced - Shopify Abandoned Cart Recovery Engine.json>)** | E-Commerce | 4 | Hardened with cryptographic HMAC SHA-256 header verification, OpenAI personalized recovery copy. | [View JSON](<workflows/00 - Atharv Enhanced & Hardened/FlowForge Enhanced - Shopify Abandoned Cart Recovery Engine.json>) |
-| **[Hardened GitHub Security Alert & Jira Escalation](<workflows/00 - Atharv Enhanced & Hardened/FlowForge Enhanced - Hardened GitHub Security Alert & Jira Escalation.json>)** | Security & DevOps | 4 | Automated Dependabot CVE triage, severity routing filter, Jira bug ticket creation & SecOps alert. | [View JSON](<workflows/00 - Atharv Enhanced & Hardened/FlowForge Enhanced - Hardened GitHub Security Alert & Jira Escalation.json>) |
+| **[Multi-Agent RAG Research & Knowledge Synthesis](<workflows/00 - Atharv Flagship Originals/Atharv Flagship - Multi-Agent RAG Research & Knowledge Synthesis.json>)** | AI & Research | 6 | Autonomous signal collector, GPT-4o reasoning agent, Qdrant vector search & Slack digest. | [View JSON](<workflows/00 - Atharv Flagship Originals/Atharv Flagship - Multi-Agent RAG Research & Knowledge Synthesis.json>) |
+| **[Autonomous Lead Enrichment & HubSpot Sync](<workflows/00 - Atharv Flagship Originals/Atharv Flagship - Autonomous Lead Enrichment & HubSpot Sync.json>)** | Lead Gen & CRM | 5 | Inbound lead webhook, Hunter domain intelligence, AI ICP fit scoring & HubSpot CRM upsert. | [View JSON](<workflows/00 - Atharv Flagship Originals/Atharv Flagship - Autonomous Lead Enrichment & HubSpot Sync.json>) |
+| **[Self-Healing DevOps Infrastructure Watchdog](<workflows/00 - Atharv Flagship Originals/Atharv Flagship - Self-Healing DevOps Infrastructure Watchdog.json>)** | DevOps & Sentry | 5 | Polling sentry, endpoint health evaluation, automated Kubernetes pod restart webhook & Discord alert. | [View JSON](<workflows/00 - Atharv Flagship Originals/Atharv Flagship - Self-Healing DevOps Infrastructure Watchdog.json>) |
+| **[Shopify Abandoned Cart Recovery Engine](<workflows/00 - Atharv Enhanced & Hardened/Atharv Enhanced - Shopify Abandoned Cart Recovery Engine.json>)** | E-Commerce | 4 | Hardened with cryptographic HMAC SHA-256 header verification, OpenAI personalized recovery copy. | [View JSON](<workflows/00 - Atharv Enhanced & Hardened/Atharv Enhanced - Shopify Abandoned Cart Recovery Engine.json>) |
+| **[Hardened GitHub Security Alert & Jira Escalation](<workflows/00 - Atharv Enhanced & Hardened/Atharv Enhanced - Hardened GitHub Security Alert & Jira Escalation.json>)** | Security & DevOps | 4 | Automated Dependabot CVE triage, severity routing filter, Jira bug ticket creation & SecOps alert. | [View JSON](<workflows/00 - Atharv Enhanced & Hardened/Atharv Enhanced - Hardened GitHub Security Alert & Jira Escalation.json>) |
 
 ---
 
@@ -64,7 +64,7 @@ Click on any workflow name below to jump directly to its file:
 
 | Featured Workflow | Nodes | Trigger | Integrations | Link |
 | :--- | :---: | :--- | :--- | :---: |
-| [FlowForge Flagship: Multi-Agent RAG Research & Knowledge Synthesis](workflows/03%20-%20RAG%20%26%20Vector%20Databases/FlowForge%20Flagship%20-%20Multi-Agent%20RAG%20Research%20%26%20Knowledge%20Synthesis.json) | 6 | Schedule / Cron | HTTP Request, OpenAI, Qdrant | [View JSON](workflows/03%20-%20RAG%20%26%20Vector%20Databases/FlowForge%20Flagship%20-%20Multi-Agent%20RAG%20Research%20%26%20Knowledge%20Synthesis.json) |
+| [Atharv Flagship: Multi-Agent RAG Research & Knowledge Synthesis](workflows/03%20-%20RAG%20%26%20Vector%20Databases/Atharv%20Flagship%20-%20Multi-Agent%20RAG%20Research%20%26%20Knowledge%20Synthesis.json) | 6 | Schedule / Cron | HTTP Request, OpenAI, Qdrant | [View JSON](workflows/03%20-%20RAG%20%26%20Vector%20Databases/Atharv%20Flagship%20-%20Multi-Agent%20RAG%20Research%20%26%20Knowledge%20Synthesis.json) |
 | [Adaptive RAG](workflows/03%20-%20RAG%20%26%20Vector%20Databases/Adaptive%20RAG.json) | 39 | Event | Webhook | [View JSON](workflows/03%20-%20RAG%20%26%20Vector%20Databases/Adaptive%20RAG.json) |
 | [Ai Agent To Chat With Files In Supabase Storage](workflows/03%20-%20RAG%20%26%20Vector%20Databases/Ai%20Agent%20To%20Chat%20With%20Files%20In%20Supabase%20Storage.json) | 33 | Chat | HTTP Request, OpenAI | [View JSON](workflows/03%20-%20RAG%20%26%20Vector%20Databases/Ai%20Agent%20To%20Chat%20With%20Files%20In%20Supabase%20Storage.json) |
 | [Ask Questions About A Pdf Using Ai](workflows/03%20-%20RAG%20%26%20Vector%20Databases/Ask%20Questions%20About%20A%20Pdf%20Using%20Ai.json) | 16 | Chat | OpenAI, Pinecone | [View JSON](workflows/03%20-%20RAG%20%26%20Vector%20Databases/Ask%20Questions%20About%20A%20Pdf%20Using%20Ai.json) |
@@ -108,7 +108,7 @@ Click on any workflow name below to jump directly to its file:
 
 | Featured Workflow | Nodes | Trigger | Integrations | Link |
 | :--- | :---: | :--- | :--- | :---: |
-| [FlowForge Flagship: Autonomous Lead Enrichment & HubSpot Sync](workflows/07%20-%20Lead%20Generation%20%26%20Enrichment/FlowForge%20Flagship%20-%20Autonomous%20Lead%20Enrichment%20%26%20HubSpot%20Sync.json) | 5 | Webhook | HubSpot, Slack, Webhook | [View JSON](workflows/07%20-%20Lead%20Generation%20%26%20Enrichment/FlowForge%20Flagship%20-%20Autonomous%20Lead%20Enrichment%20%26%20HubSpot%20Sync.json) |
+| [Atharv Flagship: Autonomous Lead Enrichment & HubSpot Sync](workflows/07%20-%20Lead%20Generation%20%26%20Enrichment/Atharv%20Flagship%20-%20Autonomous%20Lead%20Enrichment%20%26%20HubSpot%20Sync.json) | 5 | Webhook | HubSpot, Slack, Webhook | [View JSON](workflows/07%20-%20Lead%20Generation%20%26%20Enrichment/Atharv%20Flagship%20-%20Autonomous%20Lead%20Enrichment%20%26%20HubSpot%20Sync.json) |
 | [Auto-Log WhatsApp Inbound Messages to Vtiger CRM WALog and relate with Leads](workflows/07%20-%20Lead%20Generation%20%26%20Enrichment/Auto-Log%20WhatsApp%20Inbound%20Messages%20to%20Vtiger%20CRM%20WALog%20and%20relate%20with%20Leads.json) | 10 | Webhook | Webhook | [View JSON](workflows/07%20-%20Lead%20Generation%20%26%20Enrichment/Auto-Log%20WhatsApp%20Inbound%20Messages%20to%20Vtiger%20CRM%20WALog%20and%20relate%20with%20Leads.json) |
 | [Clearbit Workflow](workflows/07%20-%20Lead%20Generation%20%26%20Enrichment/Clearbit%20Workflow.json) | 5 | Event | HubSpot | [View JSON](workflows/07%20-%20Lead%20Generation%20%26%20Enrichment/Clearbit%20Workflow.json) |
 | [Decodo Google Maps Lead Enrichment](workflows/07%20-%20Lead%20Generation%20%26%20Enrichment/Decodo%20Google%20Maps%20Lead%20Enrichment.json) | 23 | Event | Custom Code, Gemini, Google Sheets | [View JSON](workflows/07%20-%20Lead%20Generation%20%26%20Enrichment/Decodo%20Google%20Maps%20Lead%20Enrichment.json) |
@@ -152,7 +152,7 @@ Click on any workflow name below to jump directly to its file:
 
 | Featured Workflow | Nodes | Trigger | Integrations | Link |
 | :--- | :---: | :--- | :--- | :---: |
-| [FlowForge Enhanced: Shopify Abandoned Cart Recovery Engine](workflows/11%20-%20E-Commerce%20%26%20Shopify/FlowForge%20Enhanced%20-%20Shopify%20Abandoned%20Cart%20Recovery%20Engine.json) | 4 | Webhook | Custom Code, Webhook | [View JSON](workflows/11%20-%20E-Commerce%20%26%20Shopify/FlowForge%20Enhanced%20-%20Shopify%20Abandoned%20Cart%20Recovery%20Engine.json) |
+| [Atharv Enhanced: Shopify Abandoned Cart Recovery Engine](workflows/11%20-%20E-Commerce%20%26%20Shopify/Atharv%20Enhanced%20-%20Shopify%20Abandoned%20Cart%20Recovery%20Engine.json) | 4 | Webhook | Custom Code, Webhook | [View JSON](workflows/11%20-%20E-Commerce%20%26%20Shopify/Atharv%20Enhanced%20-%20Shopify%20Abandoned%20Cart%20Recovery%20Engine.json) |
 | [Create, update and get a case in TheHive](workflows/11%20-%20E-Commerce%20%26%20Shopify/Create%2C%20update%20and%20get%20a%20case%20in%20TheHive.json) | 5 | Manual | Core | [View JSON](workflows/11%20-%20E-Commerce%20%26%20Shopify/Create%2C%20update%20and%20get%20a%20case%20in%20TheHive.json) |
 | [Create, update and get a product from WooCommerce](workflows/11%20-%20E-Commerce%20%26%20Shopify/Create%2C%20update%20and%20get%20a%20product%20from%20WooCommerce.json) | 5 | Manual | Core | [View JSON](workflows/11%20-%20E-Commerce%20%26%20Shopify/Create%2C%20update%20and%20get%20a%20product%20from%20WooCommerce.json) |
 | [Create, update, and get a user using the G Suite Admin node](workflows/11%20-%20E-Commerce%20%26%20Shopify/Create%2C%20update%2C%20and%20get%20a%20user%20using%20the%20G%20Suite%20Admin%20node.json) | 5 | Manual | Core | [View JSON](workflows/11%20-%20E-Commerce%20%26%20Shopify/Create%2C%20update%2C%20and%20get%20a%20user%20using%20the%20G%20Suite%20Admin%20node.json) |
@@ -207,7 +207,7 @@ Click on any workflow name below to jump directly to its file:
 
 | Featured Workflow | Nodes | Trigger | Integrations | Link |
 | :--- | :---: | :--- | :--- | :---: |
-| [FlowForge Flagship: Self-Healing DevOps Infrastructure Watchdog](workflows/16%20-%20REST%20APIs%20%26%20Webhooks/FlowForge%20Flagship%20-%20Self-Healing%20DevOps%20Infrastructure%20Watchdog.json) | 5 | Schedule / Cron | Discord, HTTP Request | [View JSON](workflows/16%20-%20REST%20APIs%20%26%20Webhooks/FlowForge%20Flagship%20-%20Self-Healing%20DevOps%20Infrastructure%20Watchdog.json) |
+| [Atharv Flagship: Self-Healing DevOps Infrastructure Watchdog](workflows/16%20-%20REST%20APIs%20%26%20Webhooks/Atharv%20Flagship%20-%20Self-Healing%20DevOps%20Infrastructure%20Watchdog.json) | 5 | Schedule / Cron | Discord, HTTP Request | [View JSON](workflows/16%20-%20REST%20APIs%20%26%20Webhooks/Atharv%20Flagship%20-%20Self-Healing%20DevOps%20Infrastructure%20Watchdog.json) |
 | [AI Blog Writer Pipeline (Ollama)](workflows/16%20-%20REST%20APIs%20%26%20Webhooks/AI%20Blog%20Writer%20Pipeline%20%28Ollama%29.json) | 7 | Manual | HTTP Request | [View JSON](workflows/16%20-%20REST%20APIs%20%26%20Webhooks/AI%20Blog%20Writer%20Pipeline%20%28Ollama%29.json) |
 | [AI Email Auto-Responder (Ollama)](workflows/16%20-%20REST%20APIs%20%26%20Webhooks/AI%20Email%20Auto-Responder%20%28Ollama%29.json) | 6 | Schedule / Cron | HTTP Request | [View JSON](workflows/16%20-%20REST%20APIs%20%26%20Webhooks/AI%20Email%20Auto-Responder%20%28Ollama%29.json) |
 | [Ai Data Extraction With Dynamic Prompts And Airtable](workflows/16%20-%20REST%20APIs%20%26%20Webhooks/Ai%20Data%20Extraction%20With%20Dynamic%20Prompts%20And%20Airtable.json) | 51 | Manual | Airtable, Custom Code, HTTP Request | [View JSON](workflows/16%20-%20REST%20APIs%20%26%20Webhooks/Ai%20Data%20Extraction%20With%20Dynamic%20Prompts%20And%20Airtable.json) |
@@ -251,7 +251,7 @@ Click on any workflow name below to jump directly to its file:
 
 | Featured Workflow | Nodes | Trigger | Integrations | Link |
 | :--- | :---: | :--- | :--- | :---: |
-| [FlowForge Enhanced: Hardened GitHub Security Alert & Jira Escalation](workflows/20%20-%20Project%20Management/FlowForge%20Enhanced%20-%20Hardened%20GitHub%20Security%20Alert%20%26%20Jira%20Escalation.json) | 4 | Webhook | Jira, Slack, Webhook | [View JSON](workflows/20%20-%20Project%20Management/FlowForge%20Enhanced%20-%20Hardened%20GitHub%20Security%20Alert%20%26%20Jira%20Escalation.json) |
+| [Atharv Enhanced: Hardened GitHub Security Alert & Jira Escalation](workflows/20%20-%20Project%20Management/Atharv%20Enhanced%20-%20Hardened%20GitHub%20Security%20Alert%20%26%20Jira%20Escalation.json) | 4 | Webhook | Jira, Slack, Webhook | [View JSON](workflows/20%20-%20Project%20Management/Atharv%20Enhanced%20-%20Hardened%20GitHub%20Security%20Alert%20%26%20Jira%20Escalation.json) |
 | [Add Positive Feedback Messages To A Table In Notion](workflows/20%20-%20Project%20Management/Add%20Positive%20Feedback%20Messages%20To%20A%20Table%20In%20Notion.json) | 6 | Form | Notion, Slack | [View JSON](workflows/20%20-%20Project%20Management/Add%20Positive%20Feedback%20Messages%20To%20A%20Table%20In%20Notion.json) |
 | [Add new clients from Notion to Clockify](workflows/20%20-%20Project%20Management/Add%20new%20clients%20from%20Notion%20to%20Clockify.json) | 5 | Event | Notion | [View JSON](workflows/20%20-%20Project%20Management/Add%20new%20clients%20from%20Notion%20to%20Clockify.json) |
 | [Automate Customer Support Issue Resolution Using Ai Text Cla](workflows/20%20-%20Project%20Management/Automate%20Customer%20Support%20Issue%20Resolution%20Using%20Ai%20Text%20Cla.json) | 36 | Event | Jira, Notion, OpenAI | [View JSON](workflows/20%20-%20Project%20Management/Automate%20Customer%20Support%20Issue%20Resolution%20Using%20Ai%20Text%20Cla.json) |
@@ -376,8 +376,7 @@ Open **`http://localhost:8080/web/`** in your browser.
 
 ---
 
-## 🛡️ License & Attribution
+## 🛡️ License
 
-- Tooling, visualizer & Atharv originals: [MIT License](LICENSE) © 2026 Atharv Hogade.
-- Curated workflows: Upstream open-source licenses strictly preserved (MIT, Apache-2.0, CC-BY-4.0).
-- Detailed provenance and audit reports: [ATTRIBUTION.md](ATTRIBUTION.md) | [SOURCES.md](SOURCES.md) | [license_audit.csv](license_audit.csv)
+Created, designed, and curated by [Atharv Hogade](https://github.com/cyber-atharv).  
+Licensed under the [MIT License](LICENSE).

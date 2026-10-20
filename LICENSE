@@ -1,21 +1,6 @@
-# FlowForge Studio - Licensing Terms & Conditions
-
-This repository contains two distinct licensing frameworks:
-
-1. **Project Tooling, Scripts, Visualizer & Original Workflows**
-   Licensed under the MIT License (see Section 1 below).
-
-2. **Collected Third-Party Workflows & Templates**
-   Each workflow JSON file imported or indexed from upstream open-source repositories retains its original creator's license, copyright notice, and terms (MIT, Apache-2.0, CC-BY-4.0, or other documented open-source licenses).
-   See `SOURCES.md`, `ATTRIBUTION.md`, and `license_audit.csv` for the granular license audit for every workflow and source repository.
-
----
-
-## SECTION 1: MIT LICENSE (Project Tooling & Original Architectures)
-
 MIT License
 
-Copyright (c) 2026 FlowForge Studio Architecture Team
+Copyright (c) 2026 Atharv Hogade (cyber-atharv)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -34,17 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-## SECTION 2: THIRD-PARTY WORKFLOW LICENSING SUMMARY
-
-| Repository / Source | Primary License | Upstream Author / Maintainer | Commercial Use | Attribution Obligation |
-| :--- | :--- | :--- | :---: | :---: |
-| `ScraperNode/awesome-n8n-templates` | **MIT License** | ScraperNode Community | Allowed | Keep copyright & notice |
-| `zengfr/n8n-workflow-all-templates` | **Apache-2.0** | zengfr & Contributors | Allowed | State changes & keep notices |
-| `aboalrejalai/n8n-workflows` | **MIT License** | aboalrejalai | Allowed | Keep copyright & notice |
-| `enescingoz/awesome-n8n-templates` | **CC-BY-4.0** | Enes Cingöz | Allowed | Attribute original creator |
-| `Danitilahun/n8n-workflow-templates` | **Audited Permissive** | Danitilahun | Permitted | Preserved original notice |
-
-For complete file-by-file provenance, see `WORKFLOW_MANIFEST.csv` and `license_audit.csv`.

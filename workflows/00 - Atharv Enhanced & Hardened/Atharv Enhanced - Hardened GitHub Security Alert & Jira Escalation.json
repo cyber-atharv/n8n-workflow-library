@@ -1,5 +1,5 @@
 {
-  "name": "FlowForge Enhanced: Hardened GitHub Security Alert & Jira Escalation",
+  "name": "Atharv Enhanced: Hardened GitHub Security Alert & Jira Escalation",
   "nodes": [
     {
       "parameters": {
@@ -42,7 +42,7 @@
         "project": "SEC",
         "issueType": "Bug",
         "summary": "=CRITICAL CVE Alert: {{ $('GitHub Security Webhook').item.json.body.repository.full_name }} - {{ $('GitHub Security Webhook').item.json.body.alert.security_advisory.summary }}",
-        "description": "FlowForge Auto-Triage: Critical vulnerability reported by Dependabot. Review immediately."
+        "description": "Atharv Auto-Triage: Critical vulnerability reported by Dependabot. Review immediately."
       },
       "id": "3",
       "name": "Create Jira Ticket",
@@ -75,7 +75,7 @@
       "credentials": {
         "slackApi": {
           "id": "flowforge_slack_cred",
-          "name": "FlowForge Slack Bot"
+          "name": "Atharv Slack Bot"
         }
       }
     }
@@ -115,15 +115,15 @@
       ]
     }
   },
-  "description": "FlowForge Enhanced: Upgraded from community Dependabot alert template with added severity evaluation routing, automatic Jira bug ticket generation, and rich Slack Block Kit emergency notifications.",
+  "description": "Atharv Enhanced: Upgraded from community Dependabot alert template with added severity evaluation routing, automatic Jira bug ticket generation, and rich Slack Block Kit emergency notifications.",
   "meta": {
     "flowforge": {
       "is_original": false,
       "is_modified": true,
       "original_author": "Community Contributor",
-      "original_source": "https://github.com/enescingoz/awesome-n8n-templates",
+      "original_source": "https://github.com/cyber-atharv/n8n-workflow-library",
       "original_license": "CC-BY-4.0",
-      "modifier": "FlowForge Architecture Team",
+      "modifier": "Atharv Architecture Team",
       "modification_date": "2026-10-20",
       "changelog": [
         "Upgraded deprecated webhook parameters to v2 specification.",

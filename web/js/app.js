@@ -429,6 +429,26 @@ function toggleFavorite(id, btn) {
   }
 }
 
+async function fetchWorkflowData(relPath) {
+  const isWebDir = window.location.pathname.includes('/web/');
+  const candidates = isWebDir
+    ? [`../${relPath}`, `./${relPath}`, `${relPath}`]
+    : [`./${relPath}`, `${relPath}`, `../${relPath}`];
+
+  // GitHub Raw fallback if running on Pages root or external host
+  candidates.push(`https://raw.githubusercontent.com/cyber-atharv/n8n-workflow-library/main/${encodeURI(relPath)}`);
+
+  for (const url of candidates) {
+    try {
+      const res = await fetch(url);
+      if (res.ok) {
+        return await res.json();
+      }
+    } catch (_) {}
+  }
+  throw new Error(`Failed to load workflow data: ${relPath}`);
+}
+
 async function openWorkflowModal(wf) {
   activeModalWorkflow = wf;
   const modal = document.getElementById('workflowModal');
@@ -454,9 +474,7 @@ async function openWorkflowModal(wf) {
   // Fetch full JSON for visualizer & code view
   document.getElementById('modalJsonCode').textContent = 'Loading workflow JSON definition...';
   try {
-    const res = await fetch(`../${wf.catalog_rel_path}`);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
+    const data = await fetchWorkflowData(wf.catalog_rel_path);
     activeModalWorkflow.fullData = data;
 
     document.getElementById('modalJsonCode').textContent = JSON.stringify(data, null, 2);
@@ -525,8 +543,7 @@ async function copyActiveWorkflowJson() {
 
 async function copyWorkflowJsonByPath(relPath, title) {
   try {
-    const res = await fetch(`../${relPath}`);
-    const data = await res.json();
+    const data = await fetchWorkflowData(relPath);
     await navigator.clipboard.writeText(JSON.stringify(data, null, 2));
     showToast(`✓ Copied "${title}" (Ctrl+V into n8n)`);
   } catch (e) {

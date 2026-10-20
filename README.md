@@ -364,20 +364,15 @@ Click on any workflow name below to jump directly to its file:
 
 ---
 
-## 🖥️ Interactive Web UI & Flow Visualizer
+## 🖥️ Interactive 3D Web Experience
 
-This repository includes a standalone local web application with an interactive SVG node flow visualizer:
+Explore the 3D interactive showcase:
+👉 **[Launch Atharv Workflow Explorer](https://cyber-atharv.github.io/n8n-workflow-explorer/)**
 
-```bash
-# Start local server (Python 3.10+)
-python scripts/serve.py 8080
-```
-Open **`http://localhost:8080/web/`** in your browser.
+- Interactive 3D node visualizer & category fly-through
+- Live terminal import simulation
+- Direct 1-click jump to workflow JSON on GitHub
 
-- Instant search across all 1,044+ workflows
-- Interactive flowchart graph with zoom, pan, and node inspection
-- 1-click copy button for instant canvas pasting
-- Filter by integrations, triggers, complexity, and credentials
 
 ---
 
